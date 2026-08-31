@@ -42,6 +42,10 @@ interface AppContextType {
   adminToken: string | null;
   adminUser: { name: string; role: string } | null;
   setAdminAuth: (token: string | null, user: { name: string; role: string } | null) => void;
+  adminLogin: (password: string) => Promise<boolean>;
+  adminLogout: () => void;
+  refreshProperties: () => Promise<void>;
+  refreshSettings: () => Promise<void>;
   refreshData: () => Promise<void>;
 
   // Contact Links
@@ -331,6 +335,32 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         adminToken,
         adminUser,
         setAdminAuth,
+        adminLogin: async (password: string): Promise<boolean> => {
+          try {
+            const res = await fetch('/api/admin/login', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ username: 'admin', password })
+            });
+            const data = await res.json();
+            if (res.ok && data.token) {
+              setAdminAuth(data.token, data.user || { name: 'Satya Yadav', role: 'Owner' });
+              return true;
+            }
+            return false;
+          } catch {
+            return false;
+          }
+        },
+        adminLogout: () => {
+          setAdminAuth(null, null);
+        },
+        refreshProperties: async () => {
+          await refreshData();
+        },
+        refreshSettings: async () => {
+          await refreshData();
+        },
         refreshData,
         getWhatsAppLink,
         getCallLink,

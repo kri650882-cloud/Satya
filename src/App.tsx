@@ -13,6 +13,7 @@ import { ContactPage } from './pages/ContactPage';
 import { LegalPage } from './pages/LegalPage';
 import { AdminDashboard } from './pages/AdminDashboard';
 import { GeminiChatbot } from './components/GeminiChatbot';
+import { ErrorBoundary } from './components/ErrorBoundary';
 import { Property } from './types';
 
 function MainApp() {
@@ -170,8 +171,10 @@ function MainApp() {
 
 export default function App() {
   return (
-    <AppProvider>
-      <MainApp />
-    </AppProvider>
+    <ErrorBoundary>
+      <AppProvider>
+        <MainApp />
+      </AppProvider>
+    </ErrorBoundary>
   );
 }

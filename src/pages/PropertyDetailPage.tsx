@@ -230,14 +230,14 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = ({ property
                   src={galleryImages[activeImageIndex]}
                   alt={`${property.title} - View ${activeImageIndex + 1}`}
                   aspectRatio="aspect-16/10"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover"
                   showAiBadge={true}
                 />
 
                 <div className="absolute bottom-3 right-3 z-20 flex items-center gap-2">
                   <button 
                     onClick={(e) => { e.stopPropagation(); setLightboxOpen(true); }}
-                    className="p-2 rounded-xl bg-stone-950/80 text-white hover:bg-stone-900 transition-colors shadow-md backdrop-blur-xs"
+                    className="p-2 rounded-xl bg-stone-950 text-white hover:bg-stone-900 transition-colors shadow-md border border-stone-800"
                     title="Fullscreen View"
                   >
                     <Maximize2 className="w-4 h-4" />

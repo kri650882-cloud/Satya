@@ -165,6 +165,22 @@ export const translations = {
     officeLocation: "Location / Region",
     biharMithila: "Darbhanga & Madhubani, Bihar",
     
+    // Why Choose Us Features
+    multiLocationsTitle: "Four Prime Bihar Locations",
+    multiLocationsDesc: "Carefully selected residential plots in Darbhanga, Madhubani, Pandaul, and Jhanjharpur.",
+    houseFocusTitle: "Ready for House Construction",
+    houseFocusDesc: "Direct road access and clear boundaries suitable for immediate family residential building.",
+    registryTitle: "Verified Title & Registry",
+    registryDesc: "Transparent land documentation, mutation status, and clear lineage verification.",
+    directAssistTitle: "Direct Owner Consultation",
+    directAssistDesc: "Deal directly with Satya Yadav without misleading intermediary layers.",
+    easyEnquiryTitle: "Transparent Rates",
+    easyEnquiryDesc: "Straightforward price-per-sq.ft. pricing with no hidden charges.",
+
+    // Site Visit Form Fields
+    plotRequirement: "Plot Requirement (e.g. 1 Kattha, 2 Kattha)",
+    messageOptional: "Additional Message / Special Request (Optional)",
+    
     // Error & Fallback Messages
     generalErrorMessage: "Something went wrong. Please try again or contact us on WhatsApp.",
     invalidPhoneError: "Please enter a valid 10-digit Indian mobile number.",
@@ -344,6 +360,22 @@ export const translations = {
     emailAddress: "ईमेल पता",
     officeLocation: "स्थान / क्षेत्र",
     biharMithila: "दरभंगा एवं मधुबनी, बिहार",
+    
+    // Why Choose Us Features
+    multiLocationsTitle: "चार प्रमुख बिहार स्थान",
+    multiLocationsDesc: "दरभंगा, मधुबनी, सकरी/पंडौल और झंझारपुर में विशेष रूप से चयनित आवासीय प्लॉट।",
+    houseFocusTitle: "घर निर्माण के लिए तैयार",
+    houseFocusDesc: "पारिवारिक आवास निर्माण के लिए सीधी सड़क पहुंच और स्पष्ट चौहद्दी।",
+    registryTitle: "सत्यापित दस्तावेज व रजिस्ट्री",
+    registryDesc: "पारदर्शी भू-अभिलेख, दाखिल-खारिज और स्पष्ट रजिस्ट्री रिकॉर्ड।",
+    directAssistTitle: "सीधा व्यक्तिगत मार्गदर्शन",
+    directAssistDesc: "बिना किसी बिचौलिये के सीधे सत्य यादव से स्पष्ट और ईमानदार सलाह।",
+    easyEnquiryTitle: "पारदर्शी मूल्य निर्धारण",
+    easyEnquiryDesc: "बिना किसी छुपे शुल्क के प्रति वर्ग फीट पारदर्शी दर।",
+
+    // Site Visit Form Fields
+    plotRequirement: "प्लॉट की आवश्यकता (जैसे 1 कट्ठा, 2 कट्ठा)",
+    messageOptional: "अतिरिक्त संदेश / विशेष आवश्यकता (वैकल्पिक)",
     
     // Error & Fallback Messages
     generalErrorMessage: "कुछ गलत हो गया। कृपया पुनः प्रयास करें या WhatsApp पर संपर्क करें।",

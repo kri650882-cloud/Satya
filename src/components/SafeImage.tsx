@@ -88,7 +88,7 @@ export const SafeImage: React.FC<SafeImageProps> = ({
       {/* AI Representative Image Badge */}
       {showAiBadge && errorCount < 2 && (
         <div className="absolute top-3 left-3 z-20 pointer-events-none">
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-stone-950/90 text-[10px] sm:text-[11px] font-bold text-amber-300 border border-amber-500/30 shadow-md backdrop-blur-xs">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-stone-950/95 text-[10px] sm:text-[11px] font-bold text-amber-300 border border-amber-500/40 shadow-md">
             <Sparkles className="w-3 h-3 text-amber-400" />
             <span>{badgeLabel}</span>
           </span>

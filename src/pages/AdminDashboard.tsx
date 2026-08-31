@@ -127,7 +127,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ navigate }) => {
       images: ['/src/assets/images/plot_darbhanga_1788146916525.jpg'],
       coverImage: '/src/assets/images/plot_darbhanga_1788146916525.jpg',
       mapDestination: 'Darbhanga, Bihar',
-      mapType: 'Approximate Area Location',
+      mapType: 'Approximate Location',
       isDemoFields: true,
       nearbyPlaces: [
         { name: 'Main Arterial Road', distance: '100 meters', type: 'Transport' },
@@ -846,15 +846,15 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ navigate }) => {
                             value={visit.status}
                             onChange={(e) => handleUpdateVisitStatus(visit.id, e.target.value)}
                             className={`px-2.5 py-1 rounded-lg text-xs font-bold border ${
-                              visit.status === 'Visited' ? 'bg-emerald-50 text-emerald-800 border-emerald-200' :
-                              visit.status === 'Contacted' ? 'bg-blue-50 text-blue-800 border-blue-200' :
+                              visit.status === 'Completed' ? 'bg-emerald-50 text-emerald-800 border-emerald-200' :
+                              visit.status === 'Confirmed' ? 'bg-blue-50 text-blue-800 border-blue-200' :
                               visit.status === 'Cancelled' ? 'bg-rose-50 text-rose-800 border-rose-200' :
                               'bg-amber-50 text-amber-800 border-amber-200'
                             }`}
                           >
                             <option value="New">New</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Visited">Visited</option>
+                            <option value="Confirmed">Confirmed</option>
+                            <option value="Completed">Completed</option>
                             <option value="Cancelled">Cancelled</option>
                           </select>
                         </td>
@@ -931,7 +931,6 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ navigate }) => {
                         <td className="p-4">
                           <div className="font-bold text-stone-900">{enq.name}</div>
                           <div className="text-xs text-stone-500 font-medium">+91 {enq.phone}</div>
-                          {enq.email && <div className="text-[11px] text-stone-400">{enq.email}</div>}
                         </td>
 
                         <td className="p-4 font-semibold text-stone-800">
@@ -1191,7 +1190,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ navigate }) => {
                           <Trash2 className="w-3.5 h-3.5" />
                         </button>
                       </div>
-                      <div className="text-xs text-stone-500 mb-2">{t.location} • {t.date}</div>
+                      <div className="text-xs text-stone-500 mb-2">{t.location} • {t.createdAt ? new Date(t.createdAt).toLocaleDateString('en-IN') : 'Recent'}</div>
                       <p className="text-xs text-stone-700 italic">"{t.review}"</p>
                     </div>
                   </div>

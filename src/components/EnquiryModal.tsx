@@ -124,7 +124,7 @@ export const EnquiryModal: React.FC = () => {
 
   return (
     <div 
-      className="fixed inset-0 z-50 overflow-y-auto bg-stone-950/85 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 overflow-y-auto bg-stone-950/90 flex items-center justify-center p-3 sm:p-4"
       id="enquiry-modal-overlay"
     >
       <div 

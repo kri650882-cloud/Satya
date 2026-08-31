@@ -285,8 +285,8 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
           >
             {/* Sparkle Icon */}
             <div className="relative flex items-center justify-center">
-              <Sparkles className="w-5 h-5 text-amber-400 animate-pulse" />
-              <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              <Sparkles className="w-5 h-5 text-amber-400" />
+              <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-emerald-400"></span>
             </div>
 
             <div className="text-left">

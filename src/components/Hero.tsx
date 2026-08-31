@@ -25,11 +25,10 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
         <img
           src="/images/hero_plots_bihar_1788146973356.jpg"
           alt="Premium Residential Plots in Bihar"
-          className="w-full h-full object-cover object-center scale-105 filter brightness-[0.45] contrast-110"
+          className="w-full h-full object-cover object-center brightness-50"
         />
         {/* Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/80 to-stone-950/40"></div>
-        <div className="absolute inset-0 bg-stone-950/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/85 to-stone-950/50"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-18 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28">
@@ -37,8 +36,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
           
           {/* Top Pill Badge Row */}
           <div className="flex flex-wrap items-center gap-2.5 mb-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-900/90 border border-amber-400/40 text-amber-300 text-xs font-semibold tracking-wide">
-              <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-900 border border-amber-400/40 text-amber-300 text-xs font-semibold tracking-wide">
+              <span className="w-2 h-2 rounded-full bg-amber-400"></span>
               <span>{settings.brandName} • {settings.ownerName}</span>
             </div>
 

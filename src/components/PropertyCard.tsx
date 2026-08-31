@@ -57,7 +57,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({ property, onViewDeta
           src={property.coverImage || property.images[0]}
           alt={property.title}
           aspectRatio="aspect-[16/10]"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover"
           showAiBadge={true}
           aiBadgeText={t.aiRepresentativeBadge}
         />
@@ -66,10 +66,10 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({ property, onViewDeta
         <div className="absolute top-3 right-3 flex items-center gap-1.5 z-20" onClick={(e) => e.stopPropagation()}>
           <button
             onClick={() => toggleCompare(property.id)}
-            className={`p-2 rounded-xl backdrop-blur-md transition-all shadow-md ${
+            className={`p-2 rounded-xl transition-all shadow-md ${
               compared 
                 ? 'bg-amber-500 text-stone-950 ring-2 ring-amber-300' 
-                : 'bg-stone-900/80 text-stone-300 hover:text-white hover:bg-stone-900'
+                : 'bg-stone-900 text-stone-300 hover:text-white hover:bg-stone-950'
             }`}
             title={compared ? t.compared : t.compare}
             id={`compare-btn-${property.id}`}
@@ -79,10 +79,10 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({ property, onViewDeta
 
           <button
             onClick={() => toggleFavorite(property.id)}
-            className={`p-2 rounded-xl backdrop-blur-md transition-all shadow-md ${
+            className={`p-2 rounded-xl transition-all shadow-md ${
               favorite 
                 ? 'bg-rose-500 text-white ring-2 ring-rose-300' 
-                : 'bg-stone-900/80 text-stone-300 hover:text-white hover:bg-stone-900'
+                : 'bg-stone-900 text-stone-300 hover:text-white hover:bg-stone-950'
             }`}
             title={favorite ? t.favorited : t.favorite}
             id={`favorite-btn-${property.id}`}
@@ -96,24 +96,24 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({ property, onViewDeta
           {/* Availability Status */}
           <div>
             {isSold ? (
-              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-rose-600/95 text-white text-xs font-extrabold uppercase tracking-wider shadow-lg backdrop-blur-xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-rose-600 text-white text-xs font-extrabold uppercase tracking-wider shadow-lg">
+                <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
                 <span>{t.sold}</span>
               </span>
             ) : isOnHold ? (
-              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-amber-500/95 text-stone-950 text-xs font-extrabold uppercase tracking-wider shadow-lg backdrop-blur-xs">
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-amber-500 text-stone-950 text-xs font-extrabold uppercase tracking-wider shadow-lg">
                 <span>{t.onHold}</span>
               </span>
             ) : (
-              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-emerald-600/95 text-white text-xs font-extrabold uppercase tracking-wider shadow-lg backdrop-blur-xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-emerald-600 text-white text-xs font-extrabold uppercase tracking-wider shadow-lg">
+                <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
                 <span>{t.available}</span>
               </span>
             )}
           </div>
 
           {/* Price Tag */}
-          <div className="bg-stone-950/90 border border-amber-500/30 rounded-xl px-3 py-1.5 text-right shadow-lg backdrop-blur-xs">
+          <div className="bg-stone-950 border border-amber-500/40 rounded-xl px-3 py-1.5 text-right shadow-lg">
             <span className="text-[10px] uppercase tracking-wider text-stone-300 block font-semibold">
               {t.pricePerSqft}
             </span>

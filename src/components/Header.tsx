@@ -222,7 +222,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate }) => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-stone-950 border-b border-stone-800 px-4 pt-2 pb-6 space-y-3 animate-in slide-in-from-top-2 duration-200" id="mobile-menu-drawer">
+        <div className="lg:hidden bg-stone-950 border-b border-stone-800 px-4 pt-2 pb-6 space-y-3" id="mobile-menu-drawer">
           <div className="grid grid-cols-2 gap-2 pt-2 pb-2">
             <button
               onClick={() => setLanguage('en')}

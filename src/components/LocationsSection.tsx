@@ -102,7 +102,7 @@ export const LocationsSection: React.FC<LocationsSectionProps> = ({ onSelectProp
                     src={loc.image}
                     alt={`${loc.name} residential plot`}
                     aspectRatio="aspect-4/3"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover"
                     showAiBadge={false}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/20 to-transparent pointer-events-none"></div>

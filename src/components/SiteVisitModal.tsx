@@ -138,7 +138,7 @@ export const SiteVisitModal: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-stone-950/85 flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-stone-950/90 flex items-center justify-center p-3 sm:p-4">
       <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-stone-200 overflow-hidden my-6">
         
         {/* Header */}
