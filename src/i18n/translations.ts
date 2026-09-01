@@ -10,9 +10,11 @@ export const translations = {
     luxuryTagline: "LUXURY BIHAR REAL ESTATE",
     
     // Core Actions & Buttons
-    freeConsultation: "Free Consultation",
+    freeConsultation: "Free Consultancy",
     freeAdvice: "Free Advice",
     freeConsultationSub: "Connect directly with Satya Yadav for honest advice on plot selection, rates, road access & registry.",
+    freeConsultancyTitle: "Free Property Consultancy",
+    freeConsultancySubtext: "Get direct assistance from Satya Yadav for your plot requirement.",
     chatOnWhatsApp: "Chat on WhatsApp",
     callForConsultation: "Call Now",
     instantWhatsAppAssistance: "WhatsApp Consultation",
@@ -29,7 +31,7 @@ export const translations = {
     talkToOwner: "Talk to Satya Yadav",
     viewProperty: "View Details",
     inquireNow: "Inquire Now",
-    submitEnquiry: "Submit Enquiry",
+    submitEnquiry: "Send Inquiry",
     compare: "Compare",
     compared: "In Compare",
     compareNow: "Compare Now",
@@ -39,8 +41,32 @@ export const translations = {
     favorited: "Saved",
     remove: "Remove",
     close: "Close",
+    cancel: "Cancel",
     backToHome: "Back to Home",
-    askAiAdvisor: "Ask AI Advisor",
+    askAiAdvisor: "Free Consultancy",
+    
+    // Free Consultancy Form
+    interestedLocation: "Interested Location",
+    selectLocationPrompt: "Select a location...",
+    locDarbhanga: "Darbhanga",
+    locMadhubani: "Madhubani",
+    locPandaul: "Pandaul / Sakri",
+    locJhanjharpur: "Jhanjharpur",
+    locOther: "Other Bihar Location",
+    plotRequirementLabel: "Property / Plot Requirement",
+    plotRequirementPlaceholder: "e.g. 1 Kattha, 2 Kattha, 1500 sq.ft., etc.",
+    preferredContactMethod: "Preferred Contact Method",
+    contactMethodWhatsApp: "WhatsApp",
+    contactMethodCall: "Call",
+    getFreeConsultancy: "Get Free Consultancy",
+    nameRequired: "Please enter your name.",
+    invalidPhone: "Please enter a valid 10-digit mobile number.",
+    locationRequired: "Please select a location.",
+    requirementRequired: "Please enter your property requirement.",
+    consultationSuccessMsg: "Thank you! Your consultation request has been received.",
+    consultationSuccessSub: "Satya Yadav will contact you shortly.",
+    whatsAppNow: "WhatsApp Now",
+    callNowBtn: "Call Now",
     
     // Search & Filters
     searchPlaceholder: "Search location (e.g. Darbhanga, Madhubani, Pandaul, Jhanjharpur, Plot No)...",
@@ -132,11 +158,11 @@ export const translations = {
     specification: "Specification",
     
     // Enquiry Modal & Form
-    inquireAboutTitle: "Inquire About",
+    inquireAboutTitle: "Property Inquiry:",
     inquireAboutSub: "Fill in your details below. Satya Yadav will connect with you directly with complete plot details.",
     fullName: "Full Name",
     fullNamePlaceholder: "Enter your full name",
-    mobileNumber: "Mobile Number (10 digits)",
+    mobileNumber: "Mobile Number",
     mobilePlaceholder: "10-digit mobile number",
     budgetLabel: "Approximate Budget",
     budgetSelectPlaceholder: "Select your budget range",
@@ -144,19 +170,18 @@ export const translations = {
     budget10to25L: "₹10 Lakhs - ₹25 Lakhs",
     budget25to50L: "₹25 Lakhs - ₹50 Lakhs",
     budgetAbove50L: "Above ₹50 Lakhs",
-    requiredPlotSize: "Required Plot Size / Kattha",
+    requiredPlotSize: "Required Plot Size",
     plotSizePlaceholder: "e.g. 1 Kattha, 2 Kattha, 1200 sq.ft.",
-    messageLabel: "Message / Specific Requirements",
+    messageLabel: "Message",
     messagePlaceholder: "Any questions regarding road width, location, or registry timeline...",
-    enquirySuccessTitle: "Thank You! Your enquiry has been received.",
-    enquirySuccessSub: "We will contact you shortly. You can also chat directly with Satya Yadav on WhatsApp.",
+    enquirySuccessTitle: "Thank you! Your inquiry has been received.",
+    enquirySuccessSub: "Satya Yadav will contact you shortly. You can also connect directly on WhatsApp or Call.",
     enquiryErrorGeneral: "Something went wrong. Please try again or contact us on WhatsApp.",
     submitting: "Submitting...",
     
     // Site Visit Modal & Form
     siteVisitHeading: "Book a Site Visit",
     siteVisitSub: "Schedule an on-site inspection with Satya Yadav to inspect plot boundaries and road access.",
-    interestedLocation: "Interested Location",
     preferredDate: "Preferred Date",
     preferredTime: "Preferred Time",
     morningSlot: "Morning (10:00 AM - 1:00 PM)",
@@ -194,8 +219,8 @@ export const translations = {
     
     // Error & Fallback Messages
     generalErrorMessage: "Something went wrong. Please try again or contact us on WhatsApp.",
-    invalidPhoneError: "Please enter a valid 10-digit Indian mobile number.",
-    nameRequiredError: "Please enter your full name.",
+    invalidPhoneError: "Please enter a valid 10-digit mobile number.",
+    nameRequiredError: "Please enter your name.",
     
     // Footer & Legal
     footerDisclaimer: "Disclaimer: AI representative images are marketing visuals. Specifications, exact coordinates, and registry documents should be confirmed directly with Smriti Vihar before purchase.",
@@ -217,11 +242,13 @@ export const translations = {
     luxuryTagline: "लग्जरी बिहार रियल एस्टेट",
     
     // Core Actions & Buttons
-    freeConsultation: "फ्री सलाह",
+    freeConsultation: "निःशुल्क परामर्श",
     freeAdvice: "फ्री सलाह",
     freeConsultationSub: "प्लॉट चयन, सरकारी दर, सड़क चौड़ाई और रजिस्ट्री पर सत्य यादव से सीधी और पारदर्शी सलाह प्राप्त करें।",
+    freeConsultancyTitle: "निःशुल्क प्रॉपर्टी परामर्श",
+    freeConsultancySubtext: "अपने प्लॉट की आवश्यकता के लिए सत्य यादव से सीधी सहायता प्राप्त करें।",
     chatOnWhatsApp: "WhatsApp पर चैट करें",
-    callForConsultation: "कॉल करें",
+    callForConsultation: "अभी कॉल करें",
     instantWhatsAppAssistance: "WhatsApp सलाह",
     instantWhatsAppSub: "WhatsApp पर त्वरित उत्तर प्राप्त करें",
     directPhoneAdvisory: "सीधा फोन कॉल",
@@ -230,9 +257,9 @@ export const translations = {
     copiedPhone: "फोन नंबर कॉपी हो गया!",
     exploreProperties: "प्रॉपर्टी देखें",
     bookSiteVisit: "साइट विजिट बुक करें",
-    whatsAppUs: "WhatsApp",
+    whatsAppUs: "WhatsApp पर संपर्क करें",
     whatsAppChat: "WhatsApp पर चैट करें",
-    callNow: "कॉल करें",
+    callNow: "अभी कॉल करें",
     talkToOwner: "सत्य यादव से बात करें",
     viewProperty: "विवरण देखें",
     inquireNow: "अभी पूछताछ करें",
@@ -246,8 +273,32 @@ export const translations = {
     favorited: "सहेजा गया",
     remove: "हटाएं",
     close: "बंद करें",
+    cancel: "रद्द करें",
     backToHome: "होम पर वापस जाएं",
-    askAiAdvisor: "AI सलाहकार से पूछें",
+    askAiAdvisor: "निःशुल्क परामर्श",
+    
+    // Free Consultancy Form
+    interestedLocation: "इच्छुक स्थान",
+    selectLocationPrompt: "एक स्थान चुनें...",
+    locDarbhanga: "दरभंगा",
+    locMadhubani: "मधुबनी",
+    locPandaul: "पंडौल / सकरी",
+    locJhanjharpur: "झंझारपुर",
+    locOther: "अन्य स्थान",
+    plotRequirementLabel: "प्रॉपर्टी / प्लॉट की आवश्यकता",
+    plotRequirementPlaceholder: "जैसे 1 कट्ठा, 2 कट्ठा, 1500 वर्ग फीट",
+    preferredContactMethod: "संपर्क का पसंदीदा माध्यम",
+    contactMethodWhatsApp: "WhatsApp",
+    contactMethodCall: "कॉल",
+    getFreeConsultancy: "निःशुल्क परामर्श प्राप्त करें",
+    nameRequired: "कृपया अपना नाम दर्ज करें।",
+    invalidPhone: "कृपया मान्य 10-अंकीय मोबाइल नंबर दर्ज करें।",
+    locationRequired: "कृपया एक स्थान चुनें।",
+    requirementRequired: "कृपया अपनी प्रॉपर्टी आवश्यकता दर्ज करें।",
+    consultationSuccessMsg: "धन्यवाद! आपका परामर्श अनुरोध प्राप्त हो गया है।",
+    consultationSuccessSub: "सत्य यादव शीघ्र ही आपसे संपर्क करेंगे।",
+    whatsAppNow: "WhatsApp पर चैट करें",
+    callNowBtn: "अभी कॉल करें",
     
     // Search & Filters
     searchPlaceholder: "लोकेशन खोजें (जैसे दरभंगा, मधुबनी, पंडौल, झंझारपुर, प्लॉट नंबर)...",
@@ -266,7 +317,7 @@ export const translations = {
     // Availability Status
     available: "उपलब्ध",
     onHold: "होल्ड पर",
-    sold: "बिक गया",
+    sold: "बिक चुका है",
     propertySold: "प्रॉपर्टी बिक चुकी है",
     
     // Badges & Labels
@@ -292,16 +343,16 @@ export const translations = {
     directAssistance: "सीधा व्यक्तिगत मार्गदर्शन",
     
     // Headings & Sections
-    exploreLocationsHeading: "हमारे प्रमुख स्थान",
+    exploreLocationsHeading: "स्थान",
     exploreLocationsSub: "घर निर्माण के लिए तैयार, मुख्य सड़क से जुड़े और प्रमाणित आवासीय प्लॉट।",
-    featuredPropertiesHeading: "उपलब्ध प्रॉपर्टीज",
+    featuredPropertiesHeading: "प्रॉपर्टीज़",
     featuredPropertiesSub: "सत्यापित सड़क कनेक्टिविटी और रजिस्ट्री दस्तावेजों के साथ उपलब्ध प्लॉट देखें।",
     whyChooseTitle: "स्मृति विहार ही क्यों चुनें?",
     whyChooseSub: "पारदर्शी सलाह, सत्यापित प्लॉट और अपना घर बनाने के लिए सीधे कंसलटेंट से मार्गदर्शन।",
     howItWorksHeading: "यह कैसे काम करता है",
     howItWorksSub: "3 आसान चरणों में अपनी पसंद का प्लॉट खोजें और मौके पर जाकर देखें।",
     faqHeading: "अक्सर पूछे जाने वाले सवाल (FAQ)",
-    aboutHeading: "स्मृति विहार के बारे में",
+    aboutHeading: "हमारे बारे में",
     aboutContent: "स्मृति विहार दरभंगा, मधुबनी, पंडौल और झंझारपुर में घर बनाने के लिए आवासीय प्लॉट खोजने में खरीदारों की मदद करता है। हमारा लक्ष्य जमीन की खोज को सरल, पारदर्शी और सुविधाजनक बनाना है — लोकेशन देखने से लेकर ऑन-साइट विजिट की व्यवस्था तक।",
     customerReviewsHeading: "ग्राहकों की राय",
     noReviewsYet: "ग्राहकों की समीक्षाएं शीघ्र ही यहां जोड़ी जाएंगी।",
@@ -320,16 +371,16 @@ export const translations = {
     
     // Navigation
     navHome: "होम",
-    navProperties: "प्रॉपर्टीज",
-    navLocations: "लोकेशन",
-    navCompare: "तुलना",
+    navProperties: "प्रॉपर्टीज़",
+    navLocations: "स्थान",
+    navCompare: "तुलना करें",
     navFavorites: "पसंदीदा",
     navAbout: "हमारे बारे में",
     navContact: "संपर्क करें",
     navAdmin: "एडमिन",
     
     // Favorites & Compare Views
-    favoritesTitle: "सहेजी गई प्रॉपर्टीज",
+    favoritesTitle: "पसंदीदा प्रॉपर्टीज",
     noFavoritesYet: "आपने अभी तक कोई प्रॉपर्टी सहेज कर नहीं रखी है।",
     noFavoritesSub: "किसी भी प्रॉपर्टी कार्ड पर दिल के निशान (❤️) पर क्लिक करके उसे बाद में देखने के लिए सहेजें।",
     compareTitle: "प्रॉपर्टी तुलना",
@@ -339,11 +390,11 @@ export const translations = {
     specification: "विशेषता",
     
     // Enquiry Modal & Form
-    inquireAboutTitle: "पूछताछ करें:",
+    inquireAboutTitle: "प्रॉपर्टी पूछताछ:",
     inquireAboutSub: "नीचे अपना विवरण भरें। सत्य यादव प्लॉट की पूरी जानकारी के साथ आपसे सीधे संपर्क करेंगे।",
     fullName: "पूरा नाम",
     fullNamePlaceholder: "अपना पूरा नाम दर्ज करें",
-    mobileNumber: "मोबाइल नंबर (10 अंक)",
+    mobileNumber: "मोबाइल नंबर",
     mobilePlaceholder: "10-अंकीय मोबाइल नंबर",
     budgetLabel: "अनुमानित बजट",
     budgetSelectPlaceholder: "अपना बजट चुनें",
@@ -351,19 +402,18 @@ export const translations = {
     budget10to25L: "₹10 लाख - ₹25 लाख",
     budget25to50L: "₹25 लाख - ₹50 लाख",
     budgetAbove50L: "₹50 लाख से अधिक",
-    requiredPlotSize: "प्लॉट की आवश्यकता / कट्ठा",
+    requiredPlotSize: "प्लॉट की आवश्यकता",
     plotSizePlaceholder: "जैसे 1 कट्ठा, 2 कट्ठा, 1200 वर्ग फीट",
-    messageLabel: "संदेश / विशेष आवश्यकताएं",
+    messageLabel: "संदेश",
     messagePlaceholder: "सड़क की चौड़ाई, लोकेशन या रजिस्ट्री समय-सीमा से जुड़ा कोई सवाल...",
     enquirySuccessTitle: "धन्यवाद! आपकी पूछताछ प्राप्त हो गई है।",
-    enquirySuccessSub: "हम शीघ्र आपसे संपर्क करेंगे। आप सत्य यादव से सीधे WhatsApp पर भी बात कर सकते हैं।",
+    enquirySuccessSub: "सत्य यादव शीघ्र ही आपसे संपर्क करेंगे। आप सीधे WhatsApp या कॉल पर भी जुड़ सकते हैं।",
     enquiryErrorGeneral: "कुछ गलत हो गया। कृपया पुनः प्रयास करें या WhatsApp पर संपर्क करें।",
     submitting: "भेजा जा रहा है...",
     
     // Site Visit Modal & Form
     siteVisitHeading: "साइट विजिट बुक करें",
     siteVisitSub: "प्लॉट की चौहद्दी और सड़क पहुंच देखने के लिए सत्य यादव के साथ साइट विजिट का समय बुक करें।",
-    interestedLocation: "इच्छित स्थान",
     preferredDate: "पसंदीदा तारीख",
     preferredTime: "पसंदीदा समय",
     morningSlot: "सुबह (10:00 AM - 1:00 PM)",
@@ -401,8 +451,8 @@ export const translations = {
     
     // Error & Fallback Messages
     generalErrorMessage: "कुछ गलत हो गया। कृपया पुनः प्रयास करें या WhatsApp पर संपर्क करें।",
-    invalidPhoneError: "कृपया एक मान्य 10-अंकीय भारतीय मोबाइल नंबर दर्ज करें।",
-    nameRequiredError: "कृपया अपना पूरा नाम दर्ज करें।",
+    invalidPhoneError: "कृपया मान्य 10-अंकीय मोबाइल नंबर दर्ज करें।",
+    nameRequiredError: "कृपया अपना नाम दर्ज करें।",
     
     // Footer & Legal
     footerDisclaimer: "अस्वीकरण: AI प्रतीकात्मक चित्र केवल मार्केटिंग सामग्री हैं। किसी भी खरीद निर्णय से पहले स्मृति विहार से सभी विवरण, सटीक निर्देशांक और रजिस्ट्री दस्तावेजों की पुष्टि अवश्य करें।",
@@ -414,3 +464,4 @@ export const translations = {
     allRightsReserved: "सर्वाधिकार सुरक्षित।"
   }
 };
+

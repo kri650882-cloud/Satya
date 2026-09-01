@@ -32,6 +32,7 @@ export const SiteVisitModal: React.FC = () => {
   // Set initial location from property if opened from a specific card
   useEffect(() => {
     if (isSiteVisitOpen) {
+      document.body.style.overflow = 'hidden';
       setSubmitted(false);
       setErrors({});
       let defaultLoc = 'Darbhanga';
@@ -52,8 +53,22 @@ export const SiteVisitModal: React.FC = () => {
         location: defaultLoc,
         date: dateStr,
       }));
+    } else {
+      document.body.style.overflow = 'unset';
     }
-  }, [isSiteVisitOpen, siteVisitInitialData, properties]);
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isSiteVisitOpen) {
+        closeSiteVisitModal();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = 'unset';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isSiteVisitOpen, siteVisitInitialData, properties, closeSiteVisitModal]);
 
   if (!isSiteVisitOpen) return null;
 

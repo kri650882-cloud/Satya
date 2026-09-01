@@ -40,6 +40,7 @@ export const EnquiryModal: React.FC = () => {
 
   useEffect(() => {
     if (isEnquiryOpen) {
+      document.body.style.overflow = 'hidden';
       setSubmitted(false);
       setErrors({});
       setApiError('');
@@ -50,8 +51,22 @@ export const EnquiryModal: React.FC = () => {
         requiredPlotSize: '',
         message: ''
       });
+    } else {
+      document.body.style.overflow = 'unset';
     }
-  }, [isEnquiryOpen, enquiryProperty]);
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isEnquiryOpen) {
+        closeEnquiryModal();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = 'unset';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isEnquiryOpen, enquiryProperty, closeEnquiryModal]);
 
   if (!isEnquiryOpen) return null;
 

@@ -45,7 +45,7 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = ({ property
     getWhatsAppLink, 
     getCallLink, 
     getDirectionsLink,
-    openChatbot
+    openFreeConsultationModal
   } = useApp();
 
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -463,21 +463,21 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = ({ property
                 </a>
               </div>
 
-              {/* AI Advisor Assistant Trigger */}
+              {/* Free Consultation Prompt */}
               <div className="pt-4 border-t border-stone-100">
                 <button
-                  onClick={() => openChatbot(`Tell me about the residential plot in ${property.location.split(',')[0]} (Plot No. ${property.plotNumber}) with price ₹${property.pricePerSqft}/sq.ft.`)}
-                  id="detail-ask-ai-btn"
-                  className="w-full p-3 rounded-2xl bg-amber-50 hover:bg-amber-100/80 border border-amber-200/80 text-left transition-colors flex items-center justify-between group"
+                  onClick={() => openFreeConsultationModal()}
+                  id="detail-free-consultation-btn"
+                  className="w-full p-3.5 rounded-2xl bg-amber-50 hover:bg-amber-100/80 border border-amber-300 text-left transition-colors flex items-center justify-between group"
                 >
                   <div className="flex items-center gap-2.5">
-                    <Sparkles className="w-4 h-4 text-amber-600 group-hover:rotate-12 transition-transform" />
+                    <Sparkles className="w-4 h-4 text-amber-600 group-hover:rotate-12 transition-transform shrink-0" />
                     <div>
                       <span className="text-xs font-bold text-amber-900 block">
-                        {t.askAiAdvisor}
+                        {t.freeConsultation} ({settings.ownerName})
                       </span>
                       <span className="text-[10px] text-amber-700">
-                        Ask about road connectivity, nearby railway/airport, and suitability
+                        Get zero-cost guidance on land verification, registry process, and location suitability
                       </span>
                     </div>
                   </div>

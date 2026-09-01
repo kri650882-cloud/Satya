@@ -22,7 +22,6 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
     settings, 
     getWhatsAppLink, 
     openSiteVisitModal, 
-    openChatbot,
     openFreeConsultationModal 
   } = useApp();
 
@@ -50,12 +49,12 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
             </div>
 
             <button
-              onClick={() => openChatbot()}
-              id="hero-ai-advisor-pill-btn"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/50 text-amber-300 text-xs font-bold transition-all shadow-sm group"
+              onClick={() => openFreeConsultationModal()}
+              id="hero-free-advice-pill-btn"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/50 text-amber-300 text-xs font-bold transition-all shadow-sm group cursor-pointer"
             >
-              <Sparkles className="w-3.5 h-3.5 text-amber-400 group-hover:rotate-12 transition-transform" />
-              <span>{t.askAiAdvisor}</span>
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>{t.freeConsultation}</span>
             </button>
           </div>
 

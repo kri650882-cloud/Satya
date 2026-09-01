@@ -144,28 +144,17 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate }) => {
             })}
           </nav>
 
-          {/* Right Actions: Free Consultation, AI Advisor, Language Switcher, Call CTA */}
+          {/* Right Actions: Free Consultation, Language Switcher, Call CTA */}
           <div className="hidden sm:flex items-center gap-2 lg:gap-2.5">
             {/* Free Consultation CTA */}
             <button
               onClick={() => openFreeConsultationModal()}
               id="header-free-consultation-btn"
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 font-bold text-xs border border-amber-400/40 transition-all shadow-sm active:scale-95"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 font-bold text-xs border border-amber-400/50 transition-all shadow-sm active:scale-95"
               title="Get Free Property Consultation"
             >
               <Sparkles className="w-3.5 h-3.5 text-amber-400" />
               <span>{t.freeConsultation}</span>
-            </button>
-
-            {/* AI Advisor Button */}
-            <button
-              onClick={() => openChatbot()}
-              id="header-ai-advisor-btn"
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-stone-800 hover:bg-stone-700 text-stone-200 font-semibold text-xs border border-stone-700 transition-all shadow-sm group"
-              title="Open AI Plot & Location Advisor"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-amber-400 group-hover:rotate-12 transition-transform" />
-              <span>{t.askAiAdvisor}</span>
             </button>
 
             {/* Language Switcher (EN | हिंदी) */}
@@ -317,12 +306,12 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate }) => {
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                openChatbot();
+                openFreeConsultationModal();
               }}
               className="py-2.5 px-3 rounded-xl bg-stone-900 border border-amber-500/30 text-amber-300 text-xs font-bold flex items-center justify-center gap-2"
             >
               <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-              <span>{t.askAiAdvisor}</span>
+              <span>{t.freeConsultation}</span>
             </button>
 
             <button

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Sparkles, ImageOff } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
@@ -28,9 +28,17 @@ export const SafeImage: React.FC<SafeImageProps> = ({
   const [errorCount, setErrorCount] = useState(0);
   const [currentSrc, setCurrentSrc] = useState<string>(src || fallbackSrc);
 
+  // Sync when src prop changes
+  useEffect(() => {
+    setCurrentSrc(src || fallbackSrc);
+    setErrorCount(0);
+    setLoading(true);
+  }, [src, fallbackSrc]);
+
   const handleImageLoad = () => {
     setLoading(false);
   };
+
 
   const handleImageError = () => {
     if (errorCount === 0 && fallbackSrc && currentSrc !== fallbackSrc) {
