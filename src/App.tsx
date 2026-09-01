@@ -5,6 +5,7 @@ import { Footer } from './components/Footer';
 import { MobileStickyBar } from './components/MobileStickyBar';
 import { SiteVisitModal } from './components/SiteVisitModal';
 import { EnquiryModal } from './components/EnquiryModal';
+import { FreeConsultationModal } from './components/FreeConsultationModal';
 import { HomePage } from './pages/HomePage';
 import { PropertyDetailPage } from './pages/PropertyDetailPage';
 import { ComparePage } from './pages/ComparePage';
@@ -150,6 +151,9 @@ function MainApp() {
 
       {/* Global Enquiry Modal */}
       <EnquiryModal />
+
+      {/* Global Free Consultation Modal */}
+      <FreeConsultationModal />
 
       {/* Gemini AI Plot Advisor Chatbot */}
       {!isAdmin && (

@@ -16,7 +16,15 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
-  const { t, language, settings, getWhatsAppLink, openSiteVisitModal, openChatbot } = useApp();
+  const { 
+    t, 
+    language, 
+    settings, 
+    getWhatsAppLink, 
+    openSiteVisitModal, 
+    openChatbot,
+    openFreeConsultationModal 
+  } = useApp();
 
   return (
     <section className="relative bg-stone-950 text-white overflow-hidden border-b border-stone-800">
@@ -86,6 +94,16 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
             >
               <span>{t.exploreProperties}</span>
               <ArrowRight className="w-4 h-4" />
+            </button>
+
+            {/* Free Consultation CTA */}
+            <button
+              onClick={() => openFreeConsultationModal()}
+              id="hero-free-consultation-button"
+              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 font-bold text-sm sm:text-base border border-amber-400/50 transition-all shadow-md"
+            >
+              <Sparkles className="w-4 h-4 text-amber-400" />
+              <span>{t.freeConsultation}</span>
             </button>
 
             {/* Book Site Visit Button */}

@@ -34,7 +34,8 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate }) => {
     getWhatsAppLink, 
     getCallLink,
     openChatbot,
-    openSiteVisitModal
+    openSiteVisitModal,
+    openFreeConsultationModal
   } = useApp();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -143,13 +144,24 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate }) => {
             })}
           </nav>
 
-          {/* Right Actions: AI Advisor, Language Switcher, Call CTA */}
-          <div className="hidden sm:flex items-center gap-2.5">
+          {/* Right Actions: Free Consultation, AI Advisor, Language Switcher, Call CTA */}
+          <div className="hidden sm:flex items-center gap-2 lg:gap-2.5">
+            {/* Free Consultation CTA */}
+            <button
+              onClick={() => openFreeConsultationModal()}
+              id="header-free-consultation-btn"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 font-bold text-xs border border-amber-400/40 transition-all shadow-sm active:scale-95"
+              title="Get Free Property Consultation"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>{t.freeConsultation}</span>
+            </button>
+
             {/* AI Advisor Button */}
             <button
               onClick={() => openChatbot()}
               id="header-ai-advisor-btn"
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-stone-800 hover:bg-stone-700 text-amber-300 font-semibold text-xs border border-amber-500/30 transition-all shadow-sm group"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-stone-800 hover:bg-stone-700 text-stone-200 font-semibold text-xs border border-stone-700 transition-all shadow-sm group"
               title="Open AI Plot & Location Advisor"
             >
               <Sparkles className="w-3.5 h-3.5 text-amber-400 group-hover:rotate-12 transition-transform" />
@@ -196,20 +208,30 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate }) => {
             </a>
           </div>
 
-          {/* Mobile Menu Toggle Button */}
-          <div className="flex items-center gap-2 sm:hidden">
+          {/* Mobile Menu Toggle & Actions */}
+          <div className="flex items-center gap-1.5 sm:hidden">
+            {/* Mobile Free Advice Button */}
+            <button
+              onClick={() => openFreeConsultationModal()}
+              className="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-amber-500/20 text-amber-300 border border-amber-400/40 flex items-center gap-1"
+              id="mobile-header-free-advice-btn"
+            >
+              <Sparkles className="w-3 h-3 text-amber-400" />
+              <span>{t.freeAdvice}</span>
+            </button>
+
             {/* Mobile Lang Button */}
             <button
               onClick={() => setLanguage(language === 'en' ? 'hi' : 'en')}
-              className="px-2.5 py-1 text-xs font-bold rounded-lg bg-stone-800 text-amber-300 border border-stone-700"
+              className="px-2 py-1.5 text-xs font-bold rounded-lg bg-stone-800 text-stone-300 border border-stone-700"
               id="mobile-quick-lang-toggle"
             >
-              {language === 'en' ? 'हिंदी' : 'EN'}
+              {language === 'en' ? 'हिं' : 'EN'}
             </button>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl text-stone-300 hover:text-white hover:bg-stone-800"
+              className="p-1.5 rounded-xl text-stone-300 hover:text-white hover:bg-stone-800"
               id="mobile-menu-toggle-btn"
               aria-label="Toggle Navigation Menu"
             >
@@ -223,7 +245,24 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate }) => {
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-stone-950 border-b border-stone-800 px-4 pt-2 pb-6 space-y-3" id="mobile-menu-drawer">
-          <div className="grid grid-cols-2 gap-2 pt-2 pb-2">
+          {/* Free Advice Banner in Drawer */}
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              openFreeConsultationModal();
+            }}
+            className="w-full py-3 px-4 rounded-2xl bg-gradient-to-r from-amber-500/20 to-amber-600/10 border border-amber-400/50 text-amber-300 font-bold text-sm flex items-center justify-between shadow-sm"
+          >
+            <div className="flex items-center gap-2.5">
+              <Sparkles className="w-4 h-4 text-amber-400" />
+              <span>{t.freeConsultation} ({settings.ownerName})</span>
+            </div>
+            <span className="text-xs bg-amber-500 text-stone-950 px-2 py-0.5 rounded-md font-extrabold">
+              {language === 'hi' ? 'सलाह लें' : 'Get Advice'}
+            </span>
+          </button>
+
+          <div className="grid grid-cols-2 gap-2 pt-1 pb-1">
             <button
               onClick={() => setLanguage('en')}
               className={`py-2 px-3 rounded-xl text-xs font-bold text-center border ${

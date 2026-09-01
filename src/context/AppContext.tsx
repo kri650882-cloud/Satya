@@ -32,6 +32,11 @@ interface AppContextType {
   closeSiteVisitModal: () => void;
   siteVisitInitialData: { propertyId?: string; location?: string };
 
+  // Free Consultation Modal
+  isFreeConsultationOpen: boolean;
+  openFreeConsultationModal: () => void;
+  closeFreeConsultationModal: () => void;
+
   // Chatbot State
   isChatOpen: boolean;
   chatInitialPrompt: string;
@@ -129,6 +134,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setIsSiteVisitOpen(false);
     setSiteVisitInitialData({});
   };
+
+  // Free Consultation Modal State
+  const [isFreeConsultationOpen, setIsFreeConsultationOpen] = useState(false);
+  const openFreeConsultationModal = () => setIsFreeConsultationOpen(true);
+  const closeFreeConsultationModal = () => setIsFreeConsultationOpen(false);
 
   // Chatbot State
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -328,6 +338,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         openSiteVisitModal,
         closeSiteVisitModal,
         siteVisitInitialData,
+        isFreeConsultationOpen,
+        openFreeConsultationModal,
+        closeFreeConsultationModal,
         isChatOpen,
         chatInitialPrompt,
         openChatbot,
