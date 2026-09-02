@@ -20,7 +20,10 @@ import {
   ExternalLink,
   RefreshCw,
   Search,
-  Filter
+  Filter,
+  Camera,
+  Upload,
+  Image as ImageIcon
 } from 'lucide-react';
 
 interface AdminDashboardProps {
@@ -124,8 +127,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ navigate }) => {
       description: 'Ideal residential plot located in a peaceful and developing neighbourhood suitable for home construction.',
       availability: 'Available',
       registryStatus: 'Registry Available',
-      images: ['/src/assets/images/plot_darbhanga_1788146916525.jpg'],
-      coverImage: '/src/assets/images/plot_darbhanga_1788146916525.jpg',
+      images: ['/images/placeholder_darbhanga.svg'],
+      coverImage: '/images/placeholder_darbhanga.svg',
       mapDestination: 'Darbhanga, Bihar',
       mapType: 'Approximate Location',
       isDemoFields: true,
@@ -751,6 +754,150 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ navigate }) => {
                         onChange={(e) => setPropertyFormData({ ...propertyFormData, description: e.target.value })}
                         className="w-full px-3 py-2 rounded-xl border border-stone-300 bg-stone-50 focus:bg-white"
                       ></textarea>
+                    </div>
+
+                    {/* Original Property Photographs Manager */}
+                    <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 space-y-3">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <Camera className="w-4 h-4 text-emerald-600" />
+                          <label className="font-bold text-stone-900 text-xs sm:text-sm">
+                            Original Property Photographs
+                          </label>
+                        </div>
+                        <span className="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-semibold">
+                          Authentic Media
+                        </span>
+                      </div>
+
+                      <p className="text-[11px] text-stone-500">
+                        Upload or specify original photos taken on-site for this property. Original photographs automatically display on the website without any AI representative labels.
+                      </p>
+
+                      {/* Cover Photo Field */}
+                      <div>
+                        <label className="block text-[11px] font-bold text-stone-700 mb-1">
+                          Cover Photo (Main Display)
+                        </label>
+                        <div className="flex gap-2">
+                          <input
+                            type="text"
+                            value={propertyFormData.coverImage || ''}
+                            onChange={(e) => setPropertyFormData({ ...propertyFormData, coverImage: e.target.value })}
+                            placeholder="/images/darbhanga/cover.jpg or image URL"
+                            className="flex-grow px-3 py-1.5 text-xs rounded-xl border border-stone-300 bg-white"
+                          />
+                          <label className="px-3 py-1.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold cursor-pointer shrink-0 flex items-center gap-1.5 shadow-sm">
+                            <Upload className="w-3.5 h-3.5" />
+                            <span>Upload File</span>
+                            <input
+                              type="file"
+                              accept="image/*"
+                              className="hidden"
+                              onChange={(e) => {
+                                const file = e.target.files?.[0];
+                                if (file) {
+                                  const reader = new FileReader();
+                                  reader.onload = () => {
+                                    if (reader.result) {
+                                      setPropertyFormData({
+                                        ...propertyFormData,
+                                        coverImage: reader.result as string,
+                                        images: [reader.result as string, ...(propertyFormData.images || []).filter(img => img !== reader.result)]
+                                      });
+                                    }
+                                  };
+                                  reader.readAsDataURL(file);
+                                }
+                              }}
+                            />
+                          </label>
+                        </div>
+                      </div>
+
+                      {/* Gallery Images List */}
+                      <div>
+                        <div className="flex items-center justify-between mb-1.5">
+                          <label className="block text-[11px] font-bold text-stone-700">
+                            Gallery Images ({propertyFormData.images?.length || 0})
+                          </label>
+                          <label className="text-[11px] text-amber-700 hover:text-amber-800 font-bold cursor-pointer flex items-center gap-1">
+                            <Plus className="w-3.5 h-3.5" />
+                            <span>Add Photo</span>
+                            <input
+                              type="file"
+                              accept="image/*"
+                              className="hidden"
+                              onChange={(e) => {
+                                const file = e.target.files?.[0];
+                                if (file) {
+                                  const reader = new FileReader();
+                                  reader.onload = () => {
+                                    if (reader.result) {
+                                      const current = propertyFormData.images || [];
+                                      setPropertyFormData({
+                                        ...propertyFormData,
+                                        images: [...current, reader.result as string]
+                                      });
+                                    }
+                                  };
+                                  reader.readAsDataURL(file);
+                                }
+                              }}
+                            />
+                          </label>
+                        </div>
+
+                        {/* Thumbnails preview */}
+                        {propertyFormData.images && propertyFormData.images.length > 0 && (
+                          <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 pt-1">
+                            {propertyFormData.images.map((img, idx) => (
+                              <div key={idx} className="relative group rounded-xl overflow-hidden border border-stone-200 aspect-video bg-stone-900">
+                                <img
+                                  src={img}
+                                  alt={`preview ${idx}`}
+                                  className="w-full h-full object-cover"
+                                  onError={(e) => {
+                                    (e.target as HTMLImageElement).src = '/images/placeholder_property.svg';
+                                  }}
+                                />
+                                {propertyFormData.coverImage === img && (
+                                  <span className="absolute bottom-1 left-1 px-1.5 py-0.5 rounded bg-amber-500 text-stone-950 text-[9px] font-extrabold shadow">
+                                    Cover
+                                  </span>
+                                )}
+                                <div className="absolute inset-0 bg-stone-950/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1 p-1">
+                                  {propertyFormData.coverImage !== img && (
+                                    <button
+                                      type="button"
+                                      onClick={() => setPropertyFormData({ ...propertyFormData, coverImage: img })}
+                                      className="p-1 rounded bg-amber-500 text-stone-950 text-[10px] font-bold"
+                                      title="Set as Cover"
+                                    >
+                                      Cover
+                                    </button>
+                                  )}
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      const filtered = (propertyFormData.images || []).filter((_, i) => i !== idx);
+                                      setPropertyFormData({
+                                        ...propertyFormData,
+                                        images: filtered,
+                                        coverImage: propertyFormData.coverImage === img ? (filtered[0] || '') : propertyFormData.coverImage
+                                      });
+                                    }}
+                                    className="p-1 rounded bg-rose-600 text-white"
+                                    title="Remove"
+                                  >
+                                    <Trash2 className="w-3 h-3" />
+                                  </button>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </div>
 
                     {/* Save Button */}

@@ -267,11 +267,11 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate, onSelectProperty }
             <div className="lg:col-span-5">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-stone-200 bg-stone-900">
                 <img
-                  src="/images/plot_madhubani_1788146930008.jpg"
+                  src="/images/placeholder_madhubani.svg"
                   alt="Smriti Vihar Plots"
                   className="w-full h-80 sm:h-96 object-cover opacity-90 block"
                   onError={(e) => {
-                    e.currentTarget.src = '/images/hero_plots_bihar_1788146973356.jpg';
+                    e.currentTarget.src = '/images/placeholder_property.svg';
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent pointer-events-none"></div>

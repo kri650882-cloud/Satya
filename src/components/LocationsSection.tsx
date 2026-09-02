@@ -3,6 +3,7 @@ import { useApp } from '../context/AppContext';
 import { MapPin, ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
 import { Property } from '../types';
 import { SafeImage } from './SafeImage';
+import { getCleanPropertyImages } from '../data/propertyImages';
 
 interface LocationsSectionProps {
   onSelectProperty: (property: Property) => void;
@@ -16,6 +17,11 @@ export const LocationsSection: React.FC<LocationsSectionProps> = ({ onSelectProp
   const pandaulProp = properties.find(p => p.slug === 'pandaul' || p.location.toLowerCase().includes('pandaul'));
   const jhanjharpurProp = properties.find(p => p.slug === 'jhanjharpur' || p.location.toLowerCase().includes('jhanjharpur'));
 
+  const darbhangaImg = darbhangaProp ? getCleanPropertyImages(darbhangaProp) : { coverImage: '/images/placeholder_darbhanga.svg', isOriginal: false };
+  const madhubaniImg = madhubaniProp ? getCleanPropertyImages(madhubaniProp) : { coverImage: '/images/placeholder_madhubani.svg', isOriginal: false };
+  const pandaulImg = pandaulProp ? getCleanPropertyImages(pandaulProp) : { coverImage: '/images/placeholder_pandaul.svg', isOriginal: false };
+  const jhanjharpurImg = jhanjharpurProp ? getCleanPropertyImages(jhanjharpurProp) : { coverImage: '/images/placeholder_jhanjharpur.svg', isOriginal: false };
+
   const locationCards = [
     {
       name: "Darbhanga",
@@ -26,7 +32,8 @@ export const LocationsSection: React.FC<LocationsSectionProps> = ({ onSelectProp
       price: darbhangaProp ? `₹${darbhangaProp.pricePerSqft.toLocaleString('en-IN')}/sq.ft.` : "₹1,800/sq.ft.",
       highlight: darbhangaProp ? darbhangaProp.locationHighlight : "Near Darbhanga Airport — approx. 3 km",
       access: darbhangaProp ? darbhangaProp.accessibility : "Main Road Connected",
-      image: darbhangaProp?.coverImage || "/images/plot_darbhanga_1788146916525.jpg",
+      image: darbhangaImg.coverImage,
+      isOriginal: darbhangaImg.isOriginal,
       badge: language === 'hi' ? "एयरपोर्ट कॉरिडोर" : "Airport Corridor"
     },
     {
@@ -38,7 +45,8 @@ export const LocationsSection: React.FC<LocationsSectionProps> = ({ onSelectProp
       price: madhubaniProp ? `₹${madhubaniProp.pricePerSqft.toLocaleString('en-IN')}/sq.ft.` : "₹900/sq.ft.",
       highlight: madhubaniProp ? madhubaniProp.locationHighlight : "Near Madhubani Railway Station — approx. 5 km",
       access: madhubaniProp ? madhubaniProp.accessibility : "Main Road Connected",
-      image: madhubaniProp?.coverImage || "/images/plot_madhubani_1788146930008.jpg",
+      image: madhubaniImg.coverImage,
+      isOriginal: madhubaniImg.isOriginal,
       badge: language === 'hi' ? "जिला मुख्यालय" : "District HQ"
     },
     {
@@ -50,7 +58,8 @@ export const LocationsSection: React.FC<LocationsSectionProps> = ({ onSelectProp
       price: pandaulProp ? `₹${pandaulProp.pricePerSqft.toLocaleString('en-IN')}/sq.ft.` : "₹1,000/sq.ft.",
       highlight: pandaulProp ? pandaulProp.locationHighlight : "Near Pandaul Market",
       access: pandaulProp ? pandaulProp.accessibility : "Market Road",
-      image: pandaulProp?.coverImage || "/images/plot_pandaul_1788146947558.jpg",
+      image: pandaulImg.coverImage,
+      isOriginal: pandaulImg.isOriginal,
       badge: language === 'hi' ? "मार्केट हब" : "Market Hub"
     },
     {
@@ -62,7 +71,8 @@ export const LocationsSection: React.FC<LocationsSectionProps> = ({ onSelectProp
       price: jhanjharpurProp ? `₹${jhanjharpurProp.pricePerSqft.toLocaleString('en-IN')}/sq.ft.` : "₹1,300/sq.ft.",
       highlight: jhanjharpurProp ? jhanjharpurProp.locationHighlight : "Near Jhanjharpur Market",
       access: jhanjharpurProp ? jhanjharpurProp.accessibility : "Market Road",
-      image: jhanjharpurProp?.coverImage || "/images/plot_jhanjharpur_1788146960324.jpg",
+      image: jhanjharpurImg.coverImage,
+      isOriginal: jhanjharpurImg.isOriginal,
       badge: language === 'hi' ? "प्राइम एक्सेस" : "Prime Access"
     }
   ];

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg-madhubani" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c1917" />
+      <stop offset="60%" stop-color="#141210" />
+      <stop offset="100%" stop-color="#0c0a09" />
+    </linearGradient>
+    <linearGradient id="gold-accent-m" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d97706" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#fbbf24" />
+    </linearGradient>
+    <pattern id="grid-m" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#292524" stroke-width="1" stroke-opacity="0.5" />
+      <circle cx="0" cy="0" r="1.5" fill="#78716c" fill-opacity="0.3" />
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg-madhubani)" />
+  <rect width="800" height="500" fill="url(#grid-m)" />
+
+  <g transform="translate(100, 60)" opacity="0.35">
+    <rect x="50" y="30" width="500" height="280" rx="16" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6,6" />
+    <line x1="50" y1="120" x2="550" y2="120" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,4" />
+    <line x1="300" y1="30" x2="300" y2="310" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,4" />
+    <circle cx="500" cy="80" r="28" fill="#1c1917" stroke="#d97706" stroke-width="1.5" />
+    <path d="M 500 60 L 505 78 L 500 80 L 495 78 Z" fill="#f59e0b" />
+    <path d="M 500 100 L 505 82 L 500 80 L 495 82 Z" fill="#78716c" />
+    <text x="500" y="55" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">N</text>
+  </g>
+
+  <g transform="translate(400, 110)">
+    <rect x="-110" y="-18" width="220" height="36" rx="18" fill="#1c1917" stroke="#d97706" stroke-width="1" stroke-opacity="0.6" />
+    <circle cx="-85" cy="0" r="4" fill="#f59e0b" />
+    <text x="5" y="5" fill="#fef3c7" font-family="system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="2" text-anchor="middle">SMRITI VIHAR</text>
+  </g>
+
+  <g transform="translate(400, 215)">
+    <circle cx="0" cy="0" r="44" fill="#1c1917" stroke="#f59e0b" stroke-width="1.5" />
+    <path d="M -18 -10 L 0 -22 L 18 -10 L 18 16 L -18 16 Z" fill="none" stroke="#fbbf24" stroke-width="2.5" stroke-linejoin="round" />
+    <path d="M -8 16 L -8 6 L 8 6 L 8 16" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linejoin="round" />
+    <circle cx="0" cy="-2" r="3" fill="#fbbf24" />
+  </g>
+
+  <g transform="translate(400, 310)">
+    <text x="0" y="0" fill="#fef3c7" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="24" font-weight="800" text-anchor="middle" letter-spacing="0.5">
+      Madhubani Residential Plot
+    </text>
+    <text x="0" y="28" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="1">
+      PROPERTY IMAGE COMING SOON
+    </text>
+    <text x="0" y="50" fill="#d6d3d1" font-family="system-ui, sans-serif" font-size="12" font-weight="500" text-anchor="middle">
+      Original photograph being verified • Site visits guided by Satya Yadav (+91 9718526796)
+    </text>
+  </g>
+
+  <rect x="250" y="420" width="300" height="2" fill="url(#gold-accent-m)" rx="1" />
+</svg>

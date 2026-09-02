@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg-unavail" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c1917" />
+      <stop offset="100%" stop-color="#0c0a09" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg-unavail)" />
+
+  <g transform="translate(400, 200)">
+    <circle cx="0" cy="0" r="44" fill="#292524" stroke="#44403c" stroke-width="1.5" />
+    <!-- Image Off icon -->
+    <path d="M -16 -16 L 16 16" stroke="#a8a29e" stroke-width="2.5" stroke-linecap="round" />
+    <rect x="-16" y="-12" width="32" height="24" rx="4" fill="none" stroke="#a8a29e" stroke-width="2" />
+    <circle cx="-6" cy="-4" r="2.5" fill="#a8a29e" />
+  </g>
+
+  <g transform="translate(400, 290)">
+    <text x="0" y="0" fill="#f5f5f4" font-family="system-ui, sans-serif" font-size="20" font-weight="700" text-anchor="middle">
+      Property Image Unavailable
+    </text>
+    <text x="0" y="26" fill="#a8a29e" font-family="system-ui, sans-serif" font-size="13" font-weight="500" text-anchor="middle">
+      Connect with Satya Yadav for site photos &amp; live WhatsApp video inspection
+    </text>
+    <text x="0" y="52" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="middle">
+      📞 +91 9718526796 • WhatsApp Available
+    </text>
+  </g>
+</svg>

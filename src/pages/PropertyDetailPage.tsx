@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Property } from '../types';
 import { useApp } from '../context/AppContext';
 import { SafeImage } from '../components/SafeImage';
+import { getCleanPropertyImages } from '../data/propertyImages';
 import { 
   MapPin, 
   Compass, 
@@ -23,7 +24,8 @@ import {
   ShieldAlert,
   Send,
   Building2,
-  CheckCircle2
+  CheckCircle2,
+  Camera
 } from 'lucide-react';
 
 interface PropertyDetailPageProps {
@@ -56,9 +58,8 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = ({ property
   const isSold = property.availability === 'Sold';
   const isOnHold = property.availability === 'On Hold';
 
-  const galleryImages = property.images && property.images.length > 0 
-    ? property.images 
-    : [property.coverImage];
+  const imgData = getCleanPropertyImages(property);
+  const galleryImages = imgData.galleryImages.length > 0 ? imgData.galleryImages : [imgData.coverImage];
 
   const nextImage = () => {
     setActiveImageIndex((prev) => (prev + 1) % galleryImages.length);
@@ -82,21 +83,25 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = ({ property
             <X className="w-6 h-6" />
           </button>
 
-          <button
-            onClick={prevImage}
-            className="absolute left-4 p-3 rounded-full bg-stone-800/80 text-white hover:bg-stone-700 transition-colors z-10"
-            title="Previous Image"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
+          {galleryImages.length > 1 && (
+            <>
+              <button
+                onClick={prevImage}
+                className="absolute left-4 p-3 rounded-full bg-stone-800/80 text-white hover:bg-stone-700 transition-colors z-10"
+                title="Previous Image"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
 
-          <button
-            onClick={nextImage}
-            className="absolute right-4 p-3 rounded-full bg-stone-800/80 text-white hover:bg-stone-700 transition-colors z-10"
-            title="Next Image"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
+              <button
+                onClick={nextImage}
+                className="absolute right-4 p-3 rounded-full bg-stone-800/80 text-white hover:bg-stone-700 transition-colors z-10"
+                title="Next Image"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            </>
+          )}
 
           <div className="max-w-5xl max-h-[85vh] relative">
             <img
@@ -105,7 +110,7 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = ({ property
               className="max-h-[85vh] max-w-full object-contain mx-auto rounded-xl"
             />
             <div className="text-center mt-3 text-xs text-stone-300">
-              Image {activeImageIndex + 1} of {galleryImages.length} • {t.aiRepresentativeBadge}
+              Image {activeImageIndex + 1} of {galleryImages.length} • {imgData.isOriginal ? (t.originalPhotoBadge || 'Original Photograph') : (t.imageComingSoon || 'Property Image Coming Soon')}
             </div>
           </div>
         </div>
@@ -231,34 +236,64 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = ({ property
                   alt={`${property.title} - View ${activeImageIndex + 1}`}
                   aspectRatio="aspect-16/10"
                   className="w-full h-full object-cover"
-                  showAiBadge={true}
+                  showAiBadge={false}
+                  isOriginal={imgData.isOriginal}
+                  fallbackSrc={`/images/placeholder_${(property.slug || property.id).toLowerCase()}.svg`}
                 />
+
+                {/* Left & Right Gallery Chevrons */}
+                {galleryImages.length > 1 && (
+                  <>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); prevImage(); }}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-xl bg-stone-950/80 hover:bg-stone-900 text-white transition-all shadow-md z-20 border border-stone-800 opacity-80 group-hover:opacity-100"
+                      title="Previous"
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); nextImage(); }}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-xl bg-stone-950/80 hover:bg-stone-900 text-white transition-all shadow-md z-20 border border-stone-800 opacity-80 group-hover:opacity-100"
+                      title="Next"
+                    >
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
+                  </>
+                )}
 
                 <div className="absolute bottom-3 right-3 z-20 flex items-center gap-2">
                   <button 
                     onClick={(e) => { e.stopPropagation(); setLightboxOpen(true); }}
-                    className="p-2 rounded-xl bg-stone-950 text-white hover:bg-stone-900 transition-colors shadow-md border border-stone-800"
+                    className="p-2 rounded-xl bg-stone-950/85 text-white hover:bg-stone-900 transition-colors shadow-md border border-stone-800 text-xs flex items-center gap-1.5"
                     title="Fullscreen View"
                   >
-                    <Maximize2 className="w-4 h-4" />
+                    <Maximize2 className="w-3.5 h-3.5" />
+                    <span className="hidden sm:inline">Fullscreen</span>
                   </button>
                 </div>
               </div>
 
               {/* Thumbnails */}
               {galleryImages.length > 1 && (
-                <div className="flex items-center gap-3 overflow-x-auto pb-1">
+                <div className="flex items-center gap-3 overflow-x-auto pb-1 scrollbar-none">
                   {galleryImages.map((img, idx) => (
                     <button
                       key={idx}
                       onClick={() => setActiveImageIndex(idx)}
-                      className={`relative w-20 sm:w-24 aspect-16/10 rounded-xl overflow-hidden shrink-0 border-2 transition-all ${
+                      className={`relative w-20 sm:w-24 aspect-16/10 rounded-xl overflow-hidden shrink-0 border-2 transition-all bg-stone-900 ${
                         activeImageIndex === idx 
-                          ? 'border-amber-500 ring-2 ring-amber-300' 
-                          : 'border-transparent opacity-70 hover:opacity-100'
+                          ? 'border-amber-500 ring-2 ring-amber-300 scale-[1.02]' 
+                          : 'border-stone-200 opacity-70 hover:opacity-100'
                       }`}
                     >
-                      <img src={img} alt="thumbnail" className="w-full h-full object-cover" />
+                      <img 
+                        src={img} 
+                        alt={`thumbnail ${idx + 1}`} 
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = `/images/placeholder_${(property.slug || property.id).toLowerCase()}.svg`;
+                        }}
+                      />
                     </button>
                   ))}
                 </div>

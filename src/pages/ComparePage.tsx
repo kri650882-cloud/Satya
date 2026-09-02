@@ -2,6 +2,7 @@ import React from 'react';
 import { useApp } from '../context/AppContext';
 import { Property } from '../types';
 import { SafeImage } from '../components/SafeImage';
+import { getCleanPropertyImages } from '../data/propertyImages';
 import { 
   Layers, 
   X, 
@@ -138,21 +139,28 @@ export const ComparePage: React.FC<ComparePageProps> = ({ navigate, onSelectProp
                           </button>
 
                           {/* Image */}
-                          <div 
-                            className="aspect-video w-full rounded-xl overflow-hidden bg-stone-100 mb-3 cursor-pointer relative"
-                            onClick={() => onSelectProperty(prop)}
-                          >
-                            <SafeImage
-                              src={prop.coverImage || prop.images[0]}
-                              alt={prop.title}
-                              aspectRatio="aspect-video"
-                              className="w-full h-full object-cover"
-                              showAiBadge={false}
-                            />
-                            <div className="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-stone-950/80 text-[9px] text-amber-300 font-semibold">
-                              {prop.location.split(',')[0]}
-                            </div>
-                          </div>
+                          {(() => {
+                            const imgData = getCleanPropertyImages(prop);
+                            return (
+                              <div 
+                                className="aspect-video w-full rounded-xl overflow-hidden bg-stone-100 mb-3 cursor-pointer relative"
+                                onClick={() => onSelectProperty(prop)}
+                              >
+                                <SafeImage
+                                  src={imgData.coverImage}
+                                  alt={prop.title}
+                                  aspectRatio="aspect-video"
+                                  className="w-full h-full object-cover"
+                                  showAiBadge={false}
+                                  isOriginal={imgData.isOriginal}
+                                  fallbackSrc={`/images/placeholder_${(prop.slug || prop.id).toLowerCase()}.svg`}
+                                />
+                                <div className="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-stone-950/80 text-[9px] text-amber-300 font-semibold">
+                                  {prop.location.split(',')[0]}
+                                </div>
+                              </div>
+                            );
+                          })()}
 
                           <h3 
                             onClick={() => onSelectProperty(prop)}

@@ -90,6 +90,8 @@ export const translations = {
     
     // Badges & Labels
     aiRepresentativeBadge: "AI Representative Image",
+    originalPhotoBadge: "Original Photo",
+    imageComingSoon: "Property Image Coming Soon",
     imageUnavailable: "Property Image Unavailable",
     detailsOnRequest: "Details Available on Request",
     demoEditableBadge: "Demo / Editable Field",
@@ -322,6 +324,8 @@ export const translations = {
     
     // Badges & Labels
     aiRepresentativeBadge: "AI प्रतीकात्मक चित्र",
+    originalPhotoBadge: "मूल फोटो",
+    imageComingSoon: "प्रॉपर्टी फोटो जल्द आ रही है",
     imageUnavailable: "प्रॉपर्टी छवि अनुपलब्ध",
     detailsOnRequest: "विवरण अनुरोध पर उपलब्ध",
     demoEditableBadge: "डेमो / संपादन योग्य फ़ील्ड",

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, ImageOff } from 'lucide-react';
+import { Camera, ImageOff } from 'lucide-react';
 import { useApp } from '../context/AppContext';
+import { isOldAiImage } from '../data/propertyImages';
 
 interface SafeImageProps {
   src: string;
@@ -9,6 +10,7 @@ interface SafeImageProps {
   aspectRatio?: string; // e.g. 'aspect-video', 'aspect-4/3'
   fallbackSrc?: string;
   showAiBadge?: boolean;
+  isOriginal?: boolean;
   aiBadgeText?: string;
   onClick?: () => void;
 }
@@ -18,19 +20,24 @@ export const SafeImage: React.FC<SafeImageProps> = ({
   alt,
   className = 'w-full h-full object-cover',
   aspectRatio = 'aspect-video',
-  fallbackSrc = '/images/hero_plots_bihar_1788146973356.jpg',
-  showAiBadge = true,
+  fallbackSrc = '/images/placeholder_property.svg',
+  showAiBadge = false, // AI badges removed for original photos
+  isOriginal = false,
   aiBadgeText,
   onClick
 }) => {
   const { t } = useApp();
   const [loading, setLoading] = useState(true);
   const [errorCount, setErrorCount] = useState(0);
-  const [currentSrc, setCurrentSrc] = useState<string>(src || fallbackSrc);
+
+  // Compute clean source: if source is an old AI image timestamp, cleanly switch to placeholder
+  const sanitizedSrc = isOldAiImage(src) ? fallbackSrc : (src || fallbackSrc);
+  const [currentSrc, setCurrentSrc] = useState<string>(sanitizedSrc);
 
   // Sync when src prop changes
   useEffect(() => {
-    setCurrentSrc(src || fallbackSrc);
+    const clean = isOldAiImage(src) ? fallbackSrc : (src || fallbackSrc);
+    setCurrentSrc(clean);
     setErrorCount(0);
     setLoading(true);
   }, [src, fallbackSrc]);
@@ -39,10 +46,9 @@ export const SafeImage: React.FC<SafeImageProps> = ({
     setLoading(false);
   };
 
-
   const handleImageError = () => {
     if (errorCount === 0 && fallbackSrc && currentSrc !== fallbackSrc) {
-      // Try local fallback image
+      // Try local fallback placeholder
       setErrorCount(1);
       setCurrentSrc(fallbackSrc);
     } else {
@@ -51,8 +57,6 @@ export const SafeImage: React.FC<SafeImageProps> = ({
       setLoading(false);
     }
   };
-
-  const badgeLabel = aiBadgeText || t.aiRepresentativeBadge || "AI Representative Image";
 
   return (
     <div 
@@ -93,12 +97,12 @@ export const SafeImage: React.FC<SafeImageProps> = ({
         </div>
       )}
 
-      {/* AI Representative Image Badge */}
-      {showAiBadge && errorCount < 2 && (
+      {/* Optional Authentic Photograph Badge (when original photo verified) */}
+      {isOriginal && errorCount === 0 && !loading && (
         <div className="absolute top-3 left-3 z-20 pointer-events-none">
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-stone-950/95 text-[10px] sm:text-[11px] font-bold text-amber-300 border border-amber-500/40 shadow-md">
-            <Sparkles className="w-3 h-3 text-amber-400" />
-            <span>{badgeLabel}</span>
+          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-stone-950/90 text-[10px] font-bold text-emerald-400 border border-emerald-500/40 shadow-md">
+            <Camera className="w-3 h-3 text-emerald-400" />
+            <span>{t.originalPhotoBadge || "Original Photo"}</span>
           </span>
         </div>
       )}

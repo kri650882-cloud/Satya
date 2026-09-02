@@ -40,10 +40,9 @@ export const INITIAL_PROPERTIES: Property[] = [
     ],
     mapDestination: "Darbhanga Airport, Bihar, India",
     mapType: "Approximate Location",
-    coverImage: "/images/plot_darbhanga_1788146916525.jpg",
+    coverImage: "/images/placeholder_darbhanga.svg",
     images: [
-      "/images/plot_darbhanga_1788146916525.jpg",
-      "/images/hero_plots_bihar_1788146973356.jpg"
+      "/images/placeholder_darbhanga.svg"
     ],
     isDemoFields: true,
     createdAt: "2026-08-01T10:00:00.000Z",
@@ -71,10 +70,9 @@ export const INITIAL_PROPERTIES: Property[] = [
     ],
     mapDestination: "Madhubani Railway Station, Madhubani, Bihar, India",
     mapType: "Approximate Location",
-    coverImage: "/images/plot_madhubani_1788146930008.jpg",
+    coverImage: "/images/placeholder_madhubani.svg",
     images: [
-      "/images/plot_madhubani_1788146930008.jpg",
-      "/images/hero_plots_bihar_1788146973356.jpg"
+      "/images/placeholder_madhubani.svg"
     ],
     isDemoFields: true,
     createdAt: "2026-08-01T10:00:00.000Z",
@@ -102,10 +100,9 @@ export const INITIAL_PROPERTIES: Property[] = [
     ],
     mapDestination: "Pandaul Market, Pandaul, Madhubani, Bihar, India",
     mapType: "Approximate Location",
-    coverImage: "/images/plot_pandaul_1788146947558.jpg",
+    coverImage: "/images/placeholder_pandaul.svg",
     images: [
-      "/images/plot_pandaul_1788146947558.jpg",
-      "/images/hero_plots_bihar_1788146973356.jpg"
+      "/images/placeholder_pandaul.svg"
     ],
     isDemoFields: true,
     createdAt: "2026-08-01T10:00:00.000Z",
@@ -133,10 +130,9 @@ export const INITIAL_PROPERTIES: Property[] = [
     ],
     mapDestination: "Jhanjharpur Market, Jhanjharpur, Bihar, India",
     mapType: "Approximate Location",
-    coverImage: "/images/plot_jhanjharpur_1788146960324.jpg",
+    coverImage: "/images/placeholder_jhanjharpur.svg",
     images: [
-      "/images/plot_jhanjharpur_1788146960324.jpg",
-      "/images/hero_plots_bihar_1788146973356.jpg"
+      "/images/placeholder_jhanjharpur.svg"
     ],
     isDemoFields: true,
     createdAt: "2026-08-01T10:00:00.000Z",

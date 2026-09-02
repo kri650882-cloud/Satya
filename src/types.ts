@@ -27,6 +27,7 @@ export interface Property {
   mapType: 'Approximate Location' | 'Exact Location';
   coverImage: string;
   images: string[];
+  isOriginalPhoto?: boolean;
   isDemoFields?: boolean;
   createdAt: string;
   updatedAt: string;

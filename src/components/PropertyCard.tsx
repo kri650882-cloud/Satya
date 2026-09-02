@@ -2,6 +2,7 @@ import React from 'react';
 import { Property } from '../types';
 import { useApp } from '../context/AppContext';
 import { SafeImage } from './SafeImage';
+import { getCleanPropertyImages } from '../data/propertyImages';
 import { 
   MapPin, 
   Compass, 
@@ -39,6 +40,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({ property, onViewDeta
   const compared = isCompared(property.id);
   const isSold = property.availability === 'Sold';
   const isOnHold = property.availability === 'On Hold';
+  const imgData = getCleanPropertyImages(property);
 
   const handleCardClick = () => {
     if (onViewDetails) {
@@ -54,12 +56,13 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({ property, onViewDeta
       {/* Top Image Section */}
       <div className="relative overflow-hidden cursor-pointer" onClick={handleCardClick}>
         <SafeImage
-          src={property.coverImage || property.images[0]}
+          src={imgData.coverImage}
           alt={property.title}
           aspectRatio="aspect-[16/10]"
-          className="w-full h-full object-cover"
-          showAiBadge={true}
-          aiBadgeText={t.aiRepresentativeBadge}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          showAiBadge={false}
+          isOriginal={imgData.isOriginal}
+          fallbackSrc={`/images/placeholder_${(property.slug || property.id).toLowerCase()}.svg`}
         />
 
         {/* Top Right Floating Action: Favorite & Compare */}

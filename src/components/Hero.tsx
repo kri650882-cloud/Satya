@@ -27,15 +27,16 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
 
   return (
     <section className="relative bg-stone-950 text-white overflow-hidden border-b border-stone-800">
-      {/* Background Image with Deep Gradient Overlays */}
+      {/* Background with Clean Architectural Land Topography Pattern */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero_plots_bihar_1788146973356.jpg"
-          alt="Premium Residential Plots in Bihar"
-          className="w-full h-full object-cover object-center brightness-50"
+          src="/images/hero_bg_pattern.svg"
+          alt="SMRITI VIHAR - Premium Residential Plots Bihar"
+          className="w-full h-full object-cover object-center opacity-90"
         />
-        {/* Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/85 to-stone-950/50"></div>
+        {/* Deep Gradient Overlays for Luxury Contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/80 to-transparent"></div>
+        <div className="absolute inset-0 bg-radial from-amber-500/5 via-transparent to-stone-950/80"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-18 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28">
