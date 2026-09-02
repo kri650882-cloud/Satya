@@ -95,7 +95,7 @@ export const FreeConsultationModal: React.FC = () => {
   };
 
   const generateWhatsAppUrl = () => {
-    const message = `Hello Satya Yadav, I would like to get free property consultancy from Smriti Vihar.\n\nName: ${formData.name.trim()}\nMobile: ${formData.phone.trim()}\nLocation: ${formData.location}\nRequirement: ${formData.requirement.trim()}\nPreferred Contact: ${formData.contactMethod}\nMessage: ${formData.message.trim() || 'N/A'}`;
+    const message = `Hello Satya Yadav, I would like to get free property consultancy.\n\nName: ${formData.name.trim()}\nMobile: ${formData.phone.trim()}\nLocation: ${formData.location}\nRequirement: ${formData.requirement.trim()}\nPreferred Contact: ${formData.contactMethod}\nMessage: ${formData.message.trim() || 'N/A'}`;
     return `https://wa.me/919718526796?text=${encodeURIComponent(message)}`;
   };
 

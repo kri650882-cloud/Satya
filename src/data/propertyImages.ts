@@ -1,6 +1,6 @@
-// Centralized Property Image Management & Mapping for SMRITI VIHAR
-// Supports real original property photographs, multi-photo galleries,
-// responsive image delivery, and graceful placeholders.
+// Centralized Property Image Management & Mapping for SATYA YADAV - PROPERTY CONSULTANT
+// Restores high-quality AI representative images for all 4 locations,
+// with support for admin-uploaded original photographs and resilient branded fallbacks.
 
 export interface PropertyImageMapping {
   propertyId: string;
@@ -8,99 +8,83 @@ export interface PropertyImageMapping {
   location: string;
   coverImage: string;
   galleryImages: string[];
-  isOriginal: boolean; // true if real photograph provided by owner, false if pending
+  isOriginal: boolean;
   caption?: string;
 }
 
-// Registry of property images
-// When original images are uploaded (via Admin Dashboard or into /public/images/<location>/),
-// they map directly here.
+// Registry of AI Representative Property Images for all 4 locations
 export const PROPERTY_IMAGES: Record<string, PropertyImageMapping> = {
   darbhanga: {
     propertyId: "darbhanga",
     slug: "darbhanga",
     location: "Darbhanga, Bihar",
-    coverImage: "/images/darbhanga/cover.jpg",
+    coverImage: "/images/plot_darbhanga.jpg",
     galleryImages: [
-      "/images/darbhanga/cover.jpg",
-      "/images/darbhanga/photo-1.jpg",
-      "/images/darbhanga/photo-2.jpg"
+      "/images/plot_darbhanga.jpg",
+      "/images/hero_plots_bihar.jpg",
+      "/images/plot_darbhanga_1788146916525.jpg"
     ],
-    isOriginal: false, // will flip to true when original file exists or is uploaded
-    caption: "Darbhanga Residential Plot — Near Darbhanga Airport"
+    isOriginal: false,
+    caption: "Darbhanga Residential Land — Close to Darbhanga Airport & NH"
   },
   madhubani: {
     propertyId: "madhubani",
     slug: "madhubani",
     location: "Madhubani, Bihar",
-    coverImage: "/images/madhubani/cover.jpg",
+    coverImage: "/images/plot_madhubani.jpg",
     galleryImages: [
-      "/images/madhubani/cover.jpg",
-      "/images/madhubani/photo-1.jpg",
-      "/images/madhubani/photo-2.jpg"
+      "/images/plot_madhubani.jpg",
+      "/images/hero_plots_bihar.jpg",
+      "/images/plot_madhubani_1788146930008.jpg"
     ],
     isOriginal: false,
-    caption: "Madhubani Residential Plot — Near Railway Station"
+    caption: "Madhubani Residential Plot — Near Railway Station & District HQ"
   },
   pandaul: {
     propertyId: "pandaul",
     slug: "pandaul",
     location: "Pandaul, Madhubani, Bihar",
-    coverImage: "/images/pandaul/cover.jpg",
+    coverImage: "/images/plot_pandaul.jpg",
     galleryImages: [
-      "/images/pandaul/cover.jpg",
-      "/images/pandaul/photo-1.jpg",
-      "/images/pandaul/photo-2.jpg"
+      "/images/plot_pandaul.jpg",
+      "/images/hero_plots_bihar.jpg",
+      "/images/plot_pandaul_1788146947558.jpg"
     ],
     isOriginal: false,
-    caption: "Pandaul Residential Plot — Near Pandaul Market"
+    caption: "Pandaul Market Road Plot — High Accessibility & Residential Enclave"
   },
   jhanjharpur: {
     propertyId: "jhanjharpur",
     slug: "jhanjharpur",
     location: "Jhanjharpur, Bihar",
-    coverImage: "/images/jhanjharpur/cover.jpg",
+    coverImage: "/images/plot_jhanjharpur.jpg",
     galleryImages: [
-      "/images/jhanjharpur/cover.jpg",
-      "/images/jhanjharpur/photo-1.jpg",
-      "/images/jhanjharpur/photo-2.jpg"
+      "/images/plot_jhanjharpur.jpg",
+      "/images/hero_plots_bihar.jpg",
+      "/images/plot_jhanjharpur_1788146960324.jpg"
     ],
     isOriginal: false,
-    caption: "Jhanjharpur Residential Plot — 50 ft Road Frontage"
+    caption: "Jhanjharpur Sub-division Plot — Wide 50 ft Road Frontage"
   }
 };
 
 /**
- * Checks whether an image URL represents an old AI-generated artifact.
- * Old AI images have the timestamp `17881469` or contain `plot_` with timestamp.
- */
-export function isOldAiImage(url?: string): boolean {
-  if (!url) return false;
-  return url.includes('17881469') || url.includes('hero_plots_bihar');
-}
-
-/**
- * Determines whether an image is considered a real, authentic photograph.
- * Uploads, local camera photos, or custom original assets are marked as original.
+ * Determines whether an image is considered an authentic original photograph uploaded by the owner.
  */
 export function isOriginalPhoto(url?: string): boolean {
   if (!url) return false;
-  if (isOldAiImage(url)) return false;
   if (url.includes('placeholder')) return false;
-  // Uploaded via admin or saved in location folders
-  if (url.includes('/uploads/') || url.includes('/darbhanga/') || url.includes('/madhubani/') || url.includes('/pandaul/') || url.includes('/jhanjharpur/')) {
-    return true;
-  }
-  // Base64 user uploads from admin
-  if (url.startsWith('data:image/')) {
+  if (url.includes('plot_') || url.includes('hero_plots')) return false;
+  // Uploaded via admin dashboard (base64 or upload path)
+  if (url.startsWith('data:image/') || url.includes('/uploads/')) {
     return true;
   }
   return false;
 }
 
 /**
- * Gets the clean, sanitized display images for a property.
- * If only old AI images exist, returns clean neutral placeholder.
+ * Gets clean, verified display images for a property.
+ * Returns the restored AI representative image or user-uploaded original photo.
  */
 export function getCleanPropertyImages(prop: {
   id?: string;
@@ -108,6 +92,7 @@ export function getCleanPropertyImages(prop: {
   coverImage?: string;
   images?: string[];
   location?: string;
+  isOriginalPhoto?: boolean;
 }): {
   coverImage: string;
   galleryImages: string[];
@@ -116,36 +101,40 @@ export function getCleanPropertyImages(prop: {
   const slugKey = (prop.slug || prop.id || '').toLowerCase();
   const mapping = PROPERTY_IMAGES[slugKey];
 
-  // 1. Check if the property already has valid non-AI images specified in database/store
-  const customCover = prop.coverImage;
-  const customImages = (prop.images && prop.images.length > 0) ? prop.images : [];
-
-  const nonAiCover = customCover && !isOldAiImage(customCover) ? customCover : null;
-  const nonAiGallery = customImages.filter(img => !isOldAiImage(img));
-
-  if (nonAiCover) {
-    const isOrig = isOriginalPhoto(nonAiCover);
+  // 1. Check if user explicitly uploaded/marked an original photo
+  if (prop.isOriginalPhoto && prop.coverImage) {
     return {
-      coverImage: nonAiCover,
-      galleryImages: nonAiGallery.length > 0 ? nonAiGallery : [nonAiCover],
+      coverImage: prop.coverImage,
+      galleryImages: (prop.images && prop.images.length > 0) ? prop.images : [prop.coverImage],
+      isOriginal: true
+    };
+  }
+
+  // 2. If property has custom non-placeholder images in db
+  if (prop.coverImage && !prop.coverImage.includes('placeholder_')) {
+    const isOrig = isOriginalPhoto(prop.coverImage);
+    const validImages = prop.images && prop.images.length > 0 ? prop.images : [prop.coverImage];
+    return {
+      coverImage: prop.coverImage,
+      galleryImages: validImages,
       isOriginal: isOrig
     };
   }
 
-  // 2. Check mapping registry
-  if (mapping && mapping.coverImage && !isOldAiImage(mapping.coverImage)) {
+  // 3. Use restored AI representative images mapped for the location
+  if (mapping) {
     return {
       coverImage: mapping.coverImage,
-      galleryImages: mapping.galleryImages.filter(img => !isOldAiImage(img)),
+      galleryImages: mapping.galleryImages,
       isOriginal: mapping.isOriginal
     };
   }
 
-  // 3. Fallback to clean neutral placeholder
-  const placeholderUrl = `/images/placeholder_${slugKey || 'property'}.svg`;
+  // 4. Default fallback
   return {
-    coverImage: placeholderUrl,
-    galleryImages: [placeholderUrl],
+    coverImage: `/images/plot_${slugKey || 'darbhanga'}.jpg`,
+    galleryImages: [`/images/plot_${slugKey || 'darbhanga'}.jpg`],
     isOriginal: false
   };
 }
+

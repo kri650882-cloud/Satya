@@ -190,8 +190,8 @@ export const ContactPage: React.FC = () => {
               </h3>
               <p>
                 {language === 'hi'
-                  ? 'स्मृति विहार आवासीय घर बनाने वाले परिवारों के लिए वास्तविक जमीन समाधान प्रदान करता है। दर, सड़क माप और दस्तावेज पूरी तरह पारदर्शी हैं।'
-                  : 'Smriti Vihar focuses on genuine land solutions for families planning to build private homes. All pricing, road measurements, and legal records are openly verified prior to transactions.'}
+                  ? 'सत्य यादव आवासीय घर बनाने वाले परिवारों के लिए वास्तविक जमीन समाधान प्रदान करते हैं। दर, सड़क माप और दस्तावेज पूरी तरह पारदर्शी हैं।'
+                  : 'Satya Yadav focuses on genuine land solutions for families planning to build private homes. All pricing, road measurements, and legal records are openly verified prior to transactions.'}
               </p>
             </div>
 

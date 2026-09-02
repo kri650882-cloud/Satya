@@ -160,7 +160,7 @@ export const SiteVisitModal: React.FC = () => {
         <div className="bg-stone-900 text-white px-6 py-5 flex items-center justify-between border-b border-stone-800">
           <div>
             <span className="text-xs font-bold text-amber-400 uppercase tracking-widest block">
-              Smriti Vihar Property Consultation
+              Satya Yadav Property Consultation
             </span>
             <h2 className="text-xl font-extrabold text-white">
               {t.siteVisitHeading}

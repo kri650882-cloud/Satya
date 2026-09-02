@@ -1,18 +1,18 @@
 import { Property, SiteSettings } from '../types';
 
 export const INITIAL_SETTINGS: SiteSettings = {
-  brandName: "SMRITI VIHAR",
+  brandName: "SATYA YADAV",
   ownerName: "Satya Yadav",
   role: "Property Consultant",
   phone: "+91 9718526796",
   whatsapp: "+91 9718526796",
   email: "satyayadav@gmail.com",
-  domain: "smritivihar.com",
+  domain: "satyayadav.in",
   tagline: "Find Your Perfect Plot. Build Your Dream Home.",
   hindiHeadline: "Madhubani, Darbhanga, Pandaul & Jhanjharpur में अपने सपनों का घर बनाने के लिए सही Plot खोजें।",
   heroDescription: "Premium residential plots in Darbhanga, Madhubani, Pandaul & Jhanjharpur. Explore locations, compare prices and book a site visit.",
-  metaTitle: "SMRITI VIHAR - Premium Residential Plots in Darbhanga, Madhubani, Pandaul & Jhanjharpur",
-  metaDescription: "Verified residential and house-building plots in Bihar. Direct assistance by Satya Yadav. Explore locations and book site visits.",
+  metaTitle: "Satya Yadav | Residential Plots in Darbhanga, Madhubani & Bihar",
+  metaDescription: "Explore residential and house-building plots in Darbhanga, Madhubani, Pandaul and Jhanjharpur with Satya Yadav. Check property details, enquire and book a site visit.",
   smtpEnabled: false,
   smtpEmail: "satyayadav@gmail.com"
 };
@@ -40,9 +40,10 @@ export const INITIAL_PROPERTIES: Property[] = [
     ],
     mapDestination: "Darbhanga Airport, Bihar, India",
     mapType: "Approximate Location",
-    coverImage: "/images/placeholder_darbhanga.svg",
+    coverImage: "/images/plot_darbhanga.jpg",
     images: [
-      "/images/placeholder_darbhanga.svg"
+      "/images/plot_darbhanga.jpg",
+      "/images/hero_plots_bihar.jpg"
     ],
     isDemoFields: true,
     createdAt: "2026-08-01T10:00:00.000Z",
@@ -70,9 +71,10 @@ export const INITIAL_PROPERTIES: Property[] = [
     ],
     mapDestination: "Madhubani Railway Station, Madhubani, Bihar, India",
     mapType: "Approximate Location",
-    coverImage: "/images/placeholder_madhubani.svg",
+    coverImage: "/images/plot_madhubani.jpg",
     images: [
-      "/images/placeholder_madhubani.svg"
+      "/images/plot_madhubani.jpg",
+      "/images/hero_plots_bihar.jpg"
     ],
     isDemoFields: true,
     createdAt: "2026-08-01T10:00:00.000Z",
@@ -100,9 +102,10 @@ export const INITIAL_PROPERTIES: Property[] = [
     ],
     mapDestination: "Pandaul Market, Pandaul, Madhubani, Bihar, India",
     mapType: "Approximate Location",
-    coverImage: "/images/placeholder_pandaul.svg",
+    coverImage: "/images/plot_pandaul.jpg",
     images: [
-      "/images/placeholder_pandaul.svg"
+      "/images/plot_pandaul.jpg",
+      "/images/hero_plots_bihar.jpg"
     ],
     isDemoFields: true,
     createdAt: "2026-08-01T10:00:00.000Z",
@@ -130,9 +133,10 @@ export const INITIAL_PROPERTIES: Property[] = [
     ],
     mapDestination: "Jhanjharpur Market, Jhanjharpur, Bihar, India",
     mapType: "Approximate Location",
-    coverImage: "/images/placeholder_jhanjharpur.svg",
+    coverImage: "/images/plot_jhanjharpur.jpg",
     images: [
-      "/images/placeholder_jhanjharpur.svg"
+      "/images/plot_jhanjharpur.jpg",
+      "/images/hero_plots_bihar.jpg"
     ],
     isDemoFields: true,
     createdAt: "2026-08-01T10:00:00.000Z",

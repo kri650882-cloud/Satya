@@ -151,7 +151,7 @@ export const EnquiryModal: React.FC = () => {
           <div>
             <div className="flex items-center gap-1.5 text-xs font-bold text-amber-400 uppercase tracking-widest mb-1">
               <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-              <span>Smriti Vihar Property Consultation</span>
+              <span>Satya Yadav Property Consultation</span>
             </div>
             <h2 className="text-lg sm:text-xl font-extrabold text-white">
               {t.inquireAboutTitle} {propLocation} {language === 'hi' ? 'प्रॉपर्टी' : 'Property'}
@@ -200,7 +200,7 @@ export const EnquiryModal: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <a
                   href={`https://wa.me/919718526796?text=${encodeURIComponent(
-                    `Hello Satya Yadav, I would like to inquire about the ${propLocation} property listed by Smriti Vihar.\n\nName: ${formData.name.trim()}\nMobile: ${formData.phone.trim()}\nRequirement: ${formData.requiredPlotSize ? formData.requiredPlotSize : (formData.budget ? `Budget: ${formData.budget}` : 'Plot Details & Rate')}`
+                    `Hello Satya Yadav, I would like to inquire about the ${propLocation} property (${propTitle}).\n\nName: ${formData.name.trim()}\nMobile: ${formData.phone.trim()}\nRequirement: ${formData.requiredPlotSize ? formData.requiredPlotSize : (formData.budget ? `Budget: ${formData.budget}` : 'Plot Details & Rate')}`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"

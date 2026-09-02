@@ -60,7 +60,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({ property, onViewDeta
           alt={property.title}
           aspectRatio="aspect-[16/10]"
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          showAiBadge={false}
+          showAiBadge={!imgData.isOriginal}
           isOriginal={imgData.isOriginal}
           fallbackSrc={`/images/placeholder_${(property.slug || property.id).toLowerCase()}.svg`}
         />

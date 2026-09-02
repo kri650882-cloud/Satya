@@ -66,7 +66,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [language, setLanguageState] = useState<Language>(() => {
     try {
       const saved = localStorage.getItem('sv_lang');
-      return (saved === 'hi' || saved === 'en') ? saved : 'en';
+      const chosen = (saved === 'hi' || saved === 'en') ? saved : 'en';
+      if (typeof document !== 'undefined') {
+        document.documentElement.lang = chosen;
+      }
+      return chosen;
     } catch {
       return 'en';
     }
@@ -74,6 +78,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = lang;
+    }
     try {
       localStorage.setItem('sv_lang', lang);
     } catch {
@@ -293,7 +300,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       message = customMsg;
     } else if (property) {
       const loc = property.location.split(',')[0].trim();
-      message = `Hello Satya Yadav, I am interested in the ${loc} plot (${property.title}) listed on Smriti Vihar. Please share complete price, road connectivity, and registry details.`;
+      message = `Hello Satya Yadav, I am interested in ${property.title} in ${loc}. Please share more details.`;
     } else {
       message = "Hello Satya Yadav, I am interested in residential plots in Darbhanga / Madhubani / Pandaul / Jhanjharpur. Please share details.";
     }

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 import { Hero } from '../components/Hero';
 import { PropertySearch } from '../components/PropertySearch';
@@ -55,6 +55,27 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate, onSelectProperty }
       el.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // Scroll to targeted section if navigated via path or hash
+  useEffect(() => {
+    const path = window.location.pathname;
+    const hash = window.location.hash;
+    let targetId = '';
+    if (path === '/locations' || hash === '#locations-section') {
+      targetId = 'locations-section';
+    } else if (path === '/properties' || hash === '#featured-properties-section') {
+      targetId = 'featured-properties-section';
+    } else if (hash === '#about-section') {
+      targetId = 'about-section';
+    }
+    if (targetId) {
+      const timer = setTimeout(() => {
+        const el = document.getElementById(targetId);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 120);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   // Filter & Search Logic
   const filteredProperties = useMemo(() => {
@@ -210,7 +231,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate, onSelectProperty }
         </div>
       </section>
 
-      {/* 6. Why Choose Smriti Vihar */}
+      {/* 6. Why Choose Satya Yadav */}
       <WhyChooseUs />
 
       {/* 8. How It Works */}
@@ -258,7 +279,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate, onSelectProperty }
         </div>
       </section>
 
-      {/* 10. About Smriti Vihar Section */}
+      {/* 10. About Satya Yadav Section */}
       <section className="py-16 sm:py-24 bg-white border-b border-stone-200" id="about-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -267,8 +288,8 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate, onSelectProperty }
             <div className="lg:col-span-5">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-stone-200 bg-stone-900">
                 <img
-                  src="/images/placeholder_madhubani.svg"
-                  alt="Smriti Vihar Plots"
+                  src="/images/hero_plots_bihar.jpg"
+                  alt="Satya Yadav Residential Plots"
                   className="w-full h-80 sm:h-96 object-cover opacity-90 block"
                   onError={(e) => {
                     e.currentTarget.src = '/images/placeholder_property.svg';

@@ -1,7 +1,7 @@
 export const translations = {
   en: {
     // Brand & Identity
-    brandName: "SMRITI VIHAR",
+    brandName: "SATYA YADAV",
     propertyConsultant: "PROPERTY CONSULTANT",
     ownerName: "Satya Yadav",
     tagline: "Find Your Perfect Plot. Build Your Dream Home.",
@@ -117,13 +117,13 @@ export const translations = {
     exploreLocationsSub: "Strategically positioned residential land options ready for immediate home construction with verified access.",
     featuredPropertiesHeading: "Featured Properties",
     featuredPropertiesSub: "Explore currently listed residential land plots with verified connectivity and registry documents.",
-    whyChooseTitle: "Why Choose Smriti Vihar?",
+    whyChooseTitle: "Why Choose Satya Yadav?",
     whyChooseSub: "Transparent assistance, verified plots, and direct owner consultation for building your dream home in Bihar.",
     howItWorksHeading: "How It Works",
     howItWorksSub: "From discovering suitable locations to standing on your future plot in 3 simple steps.",
     faqHeading: "Frequently Asked Questions",
-    aboutHeading: "About Smriti Vihar",
-    aboutContent: "Smriti Vihar helps prospective homeowners explore premium residential plots and house-building opportunities across Darbhanga, Madhubani, Pandaul and Jhanjharpur. Our goal is to make property discovery simple, transparent and convenient — from exploring locations to contacting us and arranging an on-site visit.",
+    aboutHeading: "About Satya Yadav",
+    aboutContent: "Satya Yadav helps prospective homeowners explore premium residential plots and house-building opportunities across Darbhanga, Madhubani, Pandaul and Jhanjharpur. Our goal is to make property discovery simple, transparent and convenient — from exploring locations to contacting us and arranging an on-site visit.",
     customerReviewsHeading: "What Our Customers Say",
     noReviewsYet: "Customer reviews will be added here soon.",
     readyToFindTitle: "Ready to Inspect Your Future Plot in Person?",
@@ -195,7 +195,7 @@ export const translations = {
     sendWhatsAppNow: "Open in WhatsApp",
     
     // Contact Page
-    contactHeading: "Contact Smriti Vihar",
+    contactHeading: "Contact Satya Yadav",
     contactSub: "Have questions about plot availability, road connectivity, or registry? Reach out directly.",
     directAdvisory: "Direct Advisory",
     phoneCall: "Phone Call",
@@ -225,7 +225,7 @@ export const translations = {
     nameRequiredError: "Please enter your name.",
     
     // Footer & Legal
-    footerDisclaimer: "Disclaimer: AI representative images are marketing visuals. Specifications, exact coordinates, and registry documents should be confirmed directly with Smriti Vihar before purchase.",
+    footerDisclaimer: "Disclaimer: AI representative images are marketing visuals. Specifications, exact coordinates, and registry documents should be confirmed directly with Satya Yadav before purchase.",
     quickLinks: "Quick Links",
     locationsAndLegal: "Locations & Legal",
     privacyPolicy: "Privacy Policy",
@@ -235,7 +235,7 @@ export const translations = {
   },
   hi: {
     // Brand & Identity
-    brandName: "स्मृति विहार",
+    brandName: "सत्य यादव",
     propertyConsultant: "प्रॉपर्टी कंसलटेंट",
     ownerName: "सत्य यादव",
     tagline: "अपने सपनों का प्लॉट खोजें। अपना आशियाना बनाएं।",
@@ -323,7 +323,7 @@ export const translations = {
     propertySold: "प्रॉपर्टी बिक चुकी है",
     
     // Badges & Labels
-    aiRepresentativeBadge: "AI प्रतीकात्मक चित्र",
+    aiRepresentativeBadge: "AI प्रतिनिधि चित्र",
     originalPhotoBadge: "मूल फोटो",
     imageComingSoon: "प्रॉपर्टी फोटो जल्द आ रही है",
     imageUnavailable: "प्रॉपर्टी छवि अनुपलब्ध",
@@ -351,13 +351,13 @@ export const translations = {
     exploreLocationsSub: "घर निर्माण के लिए तैयार, मुख्य सड़क से जुड़े और प्रमाणित आवासीय प्लॉट।",
     featuredPropertiesHeading: "प्रॉपर्टीज़",
     featuredPropertiesSub: "सत्यापित सड़क कनेक्टिविटी और रजिस्ट्री दस्तावेजों के साथ उपलब्ध प्लॉट देखें।",
-    whyChooseTitle: "स्मृति विहार ही क्यों चुनें?",
+    whyChooseTitle: "सत्य यादव ही क्यों चुनें?",
     whyChooseSub: "पारदर्शी सलाह, सत्यापित प्लॉट और अपना घर बनाने के लिए सीधे कंसलटेंट से मार्गदर्शन।",
     howItWorksHeading: "यह कैसे काम करता है",
     howItWorksSub: "3 आसान चरणों में अपनी पसंद का प्लॉट खोजें और मौके पर जाकर देखें।",
     faqHeading: "अक्सर पूछे जाने वाले सवाल (FAQ)",
-    aboutHeading: "हमारे बारे में",
-    aboutContent: "स्मृति विहार दरभंगा, मधुबनी, पंडौल और झंझारपुर में घर बनाने के लिए आवासीय प्लॉट खोजने में खरीदारों की मदद करता है। हमारा लक्ष्य जमीन की खोज को सरल, पारदर्शी और सुविधाजनक बनाना है — लोकेशन देखने से लेकर ऑन-साइट विजिट की व्यवस्था तक।",
+    aboutHeading: "सत्य यादव के बारे में",
+    aboutContent: "सत्य यादव दरभंगा, मधुबनी, पंडौल और झंझारपुर में घर बनाने के लिए आवासीय प्लॉट खोजने में खरीदारों की मदद करते हैं। हमारा लक्ष्य जमीन की खोज को सरल, पारदर्शी और सुविधाजनक बनाना है — लोकेशन देखने से लेकर ऑन-साइट विजिट की व्यवस्था तक।",
     customerReviewsHeading: "ग्राहकों की राय",
     noReviewsYet: "ग्राहकों की समीक्षाएं शीघ्र ही यहां जोड़ी जाएंगी।",
     readyToFindTitle: "क्या आप अपना प्लॉट मौके पर देखने के लिए तैयार हैं?",
@@ -429,7 +429,7 @@ export const translations = {
     sendWhatsAppNow: "WhatsApp पर खोलें",
     
     // Contact Page
-    contactHeading: "स्मृति विहार से संपर्क करें",
+    contactHeading: "सत्य यादव से संपर्क करें",
     contactSub: "प्लॉट उपलब्धता, सड़क कनेक्टिविटी या रजिस्ट्री के बारे में सीधे संपर्क करें।",
     directAdvisory: "सीधा परामर्श",
     phoneCall: "फोन कॉल",
@@ -459,7 +459,7 @@ export const translations = {
     nameRequiredError: "कृपया अपना नाम दर्ज करें।",
     
     // Footer & Legal
-    footerDisclaimer: "अस्वीकरण: AI प्रतीकात्मक चित्र केवल मार्केटिंग सामग्री हैं। किसी भी खरीद निर्णय से पहले स्मृति विहार से सभी विवरण, सटीक निर्देशांक और रजिस्ट्री दस्तावेजों की पुष्टि अवश्य करें।",
+    footerDisclaimer: "अस्वीकरण: AI प्रतिनिधि चित्र केवल मार्केटिंग सामग्री हैं। किसी भी खरीद निर्णय से पहले सत्य यादव से सभी विवरण, सटीक निर्देशांक और रजिस्ट्री दस्तावेजों की पुष्टि अवश्य करें।",
     quickLinks: "त्वरित लिंक",
     locationsAndLegal: "लोकेशन व कानूनी",
     privacyPolicy: "गोपनीयता नीति",

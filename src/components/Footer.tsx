@@ -215,7 +215,7 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
           <div className="flex items-center gap-4">
             <span>Consultant: Satya Yadav</span>
             <span>•</span>
-            <span>Domain: smritivihar.com</span>
+            <span>Domain: {settings.domain}</span>
           </div>
         </div>
 

@@ -33,9 +33,9 @@ export const FAQSection: React.FC = () => {
     },
     {
       qEn: "Can property details change?",
-      aEn: "Yes. Please confirm the latest price, availability and specifications with Smriti Vihar before making a purchase decision.",
+      aEn: "Yes. Please confirm the latest price, availability and specifications with Satya Yadav before making a purchase decision.",
       qHi: "क्या प्रॉपर्टी के विवरण में बदलाव हो सकता है?",
-      aHi: "हाँ। कृपया किसी भी खरीद निर्णय से पहले स्मृति विहार से नवीनतम दर, उपलब्धता और विवरण की पुष्टि करें।"
+      aHi: "हाँ। कृपया किसी भी खरीद निर्णय से पहले सत्य यादव से नवीनतम दर, उपलब्धता और विवरण की पुष्टि करें।"
     },
     {
       qEn: "Are registry documents available?",

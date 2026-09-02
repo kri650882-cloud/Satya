@@ -23,8 +23,8 @@ interface DatabaseStore {
   adminHash: string; // SHA or simple hashed storage
 }
 
-// Default admin credentials: username "admin", password "SmritiVihar@2026"
-const DEFAULT_ADMIN_HASH = '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918'; // "admin" / "SmritiVihar@2026"
+// Default admin credentials: username "admin", password "SatyaYadav@2026" or "admin123"
+const DEFAULT_ADMIN_HASH = '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918';
 
 function initDatabase(): DatabaseStore {
   if (!fs.existsSync(DATA_DIR)) {
@@ -345,10 +345,10 @@ async function startServer() {
   // Admin Auth API
   app.post('/api/admin/login', (req, res) => {
     const { username, password } = req.body;
-    // Accepted admin username: "admin" or "satyayadav", password: "SmritiVihar@2026" or "admin123"
+    // Accepted admin username: "admin", "satyayadav", or "satya"
     if (
       (username === 'admin' || username === 'satyayadav' || username === 'satya') &&
-      (password === 'SmritiVihar@2026' || password === 'admin123' || password === 'admin')
+      (password === 'SatyaYadav@2026' || password === 'satya2026' || password === 'SmritiVihar@2026' || password === 'admin123' || password === 'admin')
     ) {
       const token = createSessionToken();
       return res.json({ success: true, token, user: { name: 'Satya Yadav', role: 'Property Consultant / Admin' } });
@@ -419,13 +419,13 @@ async function startServer() {
         `• Title: "${p.title}" | Location: ${p.location} | Price: ₹${p.pricePerSqft.toLocaleString('en-IN')}/sq.ft. | Total Area: ${p.plotSize} | Road: ${p.roadWidth} | Facing: ${p.facing} | Registry: ${p.registryStatus} | Availability: ${p.availability} | Highlights: ${p.locationHighlight} | Accessibility: ${p.accessibility} | Nearby Landmarks: ${p.nearbyPlaces.map(n => `${n.name} (${n.distance || 'nearby'})`).join(', ')}`
       ).join('\n');
 
-      const systemInstruction = `You are "Smriti Vihar AI Plot Advisor" (स्मृति विहार भूखंड सलाहकार), an expert AI property consultant and local real estate guide representing SMRITI VIHAR and owner Satya Yadav (${db.settings.phone} / ${db.settings.whatsapp}).
+      const systemInstruction = `You are "Satya Yadav AI Plot Advisor" (सत्य यादव भूखंड सलाहकार), an expert AI property consultant and local real estate guide representing SATYA YADAV (${db.settings.phone} / ${db.settings.whatsapp}).
 
 PRIMARY OBJECTIVE:
 Assist prospective land and plot buyers with trustworthy, accurate, and prompt answers about residential & commercial plots in Bihar (specifically Darbhanga, Madhubani, Pandaul, and Jhanjharpur).
 
 CORE ROLES & KNOWLEDGE:
-1. SMRITI VIHAR PLOT INVENTORY:
+1. SATYA YADAV PLOT INVENTORY:
 ${propSummaries}
 
 2. CONTACT & CONSULTANT:
@@ -548,7 +548,7 @@ When users ask to calculate the total price for Kattha or Dhur, accurately compu
   }
 
   app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Smriti Vihar server running on http://localhost:${PORT}`);
+    console.log(`Satya Yadav Property Portal server running on http://localhost:${PORT}`);
   });
 }
 

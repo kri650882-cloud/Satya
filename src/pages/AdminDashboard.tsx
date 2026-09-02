@@ -99,7 +99,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ navigate }) => {
     setLoginError('');
     const ok = await adminLogin(password);
     if (!ok) {
-      setLoginError('Invalid admin password. Default demo password is "admin123" or "smriti2026".');
+      setLoginError('Invalid admin password. Default demo password is "admin123" or "satya2026".');
     }
   };
 
@@ -338,12 +338,12 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ navigate }) => {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter password (e.g. admin123 or smriti2026)"
+                placeholder="Enter password (e.g. admin123 or satya2026)"
                 id="admin-password-input"
                 className="w-full text-sm px-4 py-3 rounded-xl bg-stone-800 border border-stone-700 text-white placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-amber-500"
               />
               <p className="text-[11px] text-stone-500 mt-1.5">
-                Quick Hint: You can use password <code className="text-amber-400">admin123</code> or <code className="text-amber-400">smriti2026</code>.
+                Quick Hint: You can use password <code className="text-amber-400">admin123</code> or <code className="text-amber-400">satya2026</code>.
               </p>
             </div>
 
@@ -378,7 +378,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ navigate }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-amber-500 text-stone-950 font-black flex items-center justify-center text-sm">
-              SV
+              SY
             </div>
             <div>
               <span className="font-bold text-sm sm:text-base text-white block">
@@ -1008,7 +1008,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ navigate }) => {
 
                         <td className="p-4 text-right space-x-2">
                           <a
-                            href={`https://wa.me/91${visit.phone.replace(/\D/g, '')}?text=${encodeURIComponent(`Hello ${visit.name}, I am Satya Yadav from Smriti Vihar regarding your scheduled site visit for ${visit.location}.`)}`}
+                            href={`https://wa.me/91${visit.phone.replace(/\D/g, '')}?text=${encodeURIComponent(`Hello ${visit.name}, I am Satya Yadav regarding your scheduled site visit for ${visit.location}.`)}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex p-2 rounded-lg bg-emerald-100 hover:bg-emerald-200 text-emerald-800 text-xs font-bold"
@@ -1106,7 +1106,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ navigate }) => {
 
                         <td className="p-4 text-right space-x-2">
                           <a
-                            href={`https://wa.me/91${enq.phone.replace(/\D/g, '')}?text=${encodeURIComponent(`Hello ${enq.name}, I am Satya Yadav from Smriti Vihar regarding your plot inquiry for ${enq.location}.`)}`}
+                            href={`https://wa.me/91${enq.phone.replace(/\D/g, '')}?text=${encodeURIComponent(`Hello ${enq.name}, I am Satya Yadav regarding your plot inquiry for ${enq.location}.`)}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex p-2 rounded-lg bg-emerald-100 hover:bg-emerald-200 text-emerald-800 text-xs font-bold"

@@ -27,16 +27,44 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
 
   return (
     <section className="relative bg-stone-950 text-white overflow-hidden border-b border-stone-800">
-      {/* Background with Clean Architectural Land Topography Pattern */}
+      {/* Restored Sunrise Hero Background Image */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="/images/hero_bg_pattern.svg"
-          alt="SMRITI VIHAR - Premium Residential Plots Bihar"
-          className="w-full h-full object-cover object-center opacity-90"
-        />
-        {/* Deep Gradient Overlays for Luxury Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/80 to-transparent"></div>
-        <div className="absolute inset-0 bg-radial from-amber-500/5 via-transparent to-stone-950/80"></div>
+        <picture className="w-full h-full">
+          <source
+            media="(max-width: 768px)"
+            srcSet="/images/hero_plots_bihar_768w.webp"
+            type="image/webp"
+          />
+          <source
+            srcSet="/images/hero_plots_bihar.webp"
+            type="image/webp"
+          />
+          <img
+            src="/images/hero_plots_bihar.jpg"
+            alt="Satya Yadav - Premium Residential Plots Bihar Sunrise Landscape"
+            className="w-full h-full object-cover object-center"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
+
+        {/* Subtle, Warm Directional Overlays for Pristine Text Readability without darkening the Sunrise */}
+        {/* Left-to-right gradient ensures headline text legibility while keeping sunrise glow visible */}
+        <div className="absolute inset-0 bg-gradient-to-r from-stone-950/85 via-stone-950/55 to-stone-950/25 pointer-events-none"></div>
+        {/* Subtle bottom gradient to transition cleanly to the next section */}
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent pointer-events-none"></div>
+        {/* Soft warm golden-hour ambient tint */}
+        <div className="absolute inset-0 bg-amber-900/10 pointer-events-none"></div>
+      </div>
+
+      {/* Subtle AI Representative Badge in bottom corner */}
+      <div 
+        id="hero-ai-badge"
+        className="absolute bottom-3 right-4 z-20 hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-stone-950/70 border border-white/10 text-[11px] text-stone-300 pointer-events-none select-none"
+      >
+        <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+        <span>{language === 'hi' ? 'AI प्रतिनिधि चित्र • सांकेतिक दृश्य' : 'AI Representative Image • Indicative Landscape'}</span>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-18 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28">

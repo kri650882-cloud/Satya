@@ -26,7 +26,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error('Smriti Vihar UI caught an error:', error, errorInfo);
+    console.error('Satya Yadav Property Portal UI caught an error:', error, errorInfo);
   }
 
   private handleReset = () => {
@@ -66,7 +66,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
               </button>
 
               <a
-                href="https://wa.me/919718526796?text=Hello%20Satya%20Yadav,%20I%20am%20facing%20an%20issue%20on%20Smriti%20Vihar%20website.%20Please%20assist%20me."
+                href="https://wa.me/919718526796?text=Hello%20Satya%20Yadav,%20I%20am%20facing%20an%20issue%20on%20satyayadav.in%20website.%20Please%20assist%20me."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="py-3 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-sm"

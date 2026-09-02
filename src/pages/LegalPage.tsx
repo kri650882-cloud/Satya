@@ -35,7 +35,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({ type, navigate }) => {
                     Important Legal Disclaimer
                   </h1>
                   <p className="text-xs text-stone-500">
-                    Smriti Vihar ({settings.domain}) • Satya Yadav (+91 9718526796)
+                    {settings.brandName} ({settings.domain}) • Satya Yadav (+91 9718526796)
                   </p>
                 </div>
               </div>
@@ -57,7 +57,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({ type, navigate }) => {
 
                 <h3 className="text-base font-bold text-stone-900 pt-2">3. No Guaranteed Returns</h3>
                 <p>
-                  Smriti Vihar makes no claims or guarantees regarding future capital appreciation or speculative returns. Land transactions are intended for personal house-building and residential construction.
+                  {settings.brandName} makes no claims or guarantees regarding future capital appreciation or speculative returns. Land transactions are intended for personal house-building and residential construction.
                 </p>
 
                 <h3 className="text-base font-bold text-stone-900 pt-2">4. AI-Generated Visual Representations</h3>
@@ -79,7 +79,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({ type, navigate }) => {
                     Privacy Policy
                   </h1>
                   <p className="text-xs text-stone-500">
-                    Last updated: 2026 • Smriti Vihar
+                    Last updated: 2026 • {settings.brandName}
                   </p>
                 </div>
               </div>
@@ -96,7 +96,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({ type, navigate }) => {
 
                 <h3 className="text-base font-bold text-stone-900 pt-2">2. Purpose of Collection</h3>
                 <p>
-                  Your information is utilized solely by <strong>Satya Yadav</strong> and authorized Smriti Vihar personnel to:
+                  Your information is utilized solely by <strong>Satya Yadav</strong> and authorized personnel to:
                 </p>
                 <ul className="list-disc pl-5 space-y-1 text-stone-600">
                   <li>Schedule and coordinate physical plot visits in Bihar.</li>
@@ -140,12 +140,12 @@ export const LegalPage: React.FC<LegalPageProps> = ({ type, navigate }) => {
 
                 <h3 className="text-base font-bold text-stone-900 pt-2">1. Informational Purpose</h3>
                 <p>
-                  All content, property cards, rates per sq.ft., and location maps provided on smritivihar.com are for informational assistance only. Listings do not constitute a legally binding offer until a formalized legal contract of sale is executed under Bihar state registration laws.
+                  All content, property cards, rates per sq.ft., and location maps provided on {settings.domain} are for informational assistance only. Listings do not constitute a legally binding offer until a formalized legal contract of sale is executed under Bihar state registration laws.
                 </p>
 
                 <h3 className="text-base font-bold text-stone-900 pt-2">2. Availability & Price Updates</h3>
                 <p>
-                  Plot availability statuses (Available, On Hold, Sold) and prices are subject to periodic revision based on physical plot bookings. Smriti Vihar reserves the right to update or modify listings at any time without prior notice.
+                  Plot availability statuses (Available, On Hold, Sold) and prices are subject to periodic revision based on physical plot bookings. {settings.brandName} reserves the right to update or modify listings at any time without prior notice.
                 </p>
 
                 <h3 className="text-base font-bold text-stone-900 pt-2">3. Contact for Verification</h3>
