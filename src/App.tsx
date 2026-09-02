@@ -13,12 +13,11 @@ import { FavoritesPage } from './pages/FavoritesPage';
 import { ContactPage } from './pages/ContactPage';
 import { LegalPage } from './pages/LegalPage';
 import { AdminDashboard } from './pages/AdminDashboard';
-import { GeminiChatbot } from './components/GeminiChatbot';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { Property } from './types';
 
 function MainApp() {
-  const { properties, openSiteVisitModal, isChatOpen, closeChatbot, chatInitialPrompt } = useApp();
+  const { properties, openSiteVisitModal } = useApp();
   const [currentPath, setCurrentPath] = useState<string>(() => {
     return window.location.pathname || '/';
   });
@@ -154,15 +153,6 @@ function MainApp() {
 
       {/* Global Free Consultation Modal */}
       <FreeConsultationModal />
-
-      {/* Gemini AI Plot Advisor Chatbot */}
-      {!isAdmin && (
-        <GeminiChatbot
-          isOpen={isChatOpen}
-          onClose={closeChatbot}
-          initialPrompt={chatInitialPrompt}
-        />
-      )}
 
       {/* Sticky Bottom Quick Action Bar for Mobile */}
       {!isAdmin && (

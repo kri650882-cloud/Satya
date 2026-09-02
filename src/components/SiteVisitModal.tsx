@@ -200,25 +200,36 @@ export const SiteVisitModal: React.FC = () => {
                 <div><span className="font-bold">Date & Time:</span> {formData.date} ({formData.preferredTime})</div>
               </div>
 
-              {/* Direct WhatsApp Trigger Button */}
-              <div className="pt-2 flex flex-col gap-2">
+              {/* Direct Action Buttons on Success */}
+              <div className="pt-2 flex flex-col sm:flex-row gap-3">
                 <a
                   href={generatedWhatsAppUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   id="site-visit-open-whatsapp-now"
-                  className="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md transition-transform hover:scale-[1.01]"
+                  className="flex-1 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md transition-all"
                 >
                   <Send className="w-4 h-4" />
-                  <span>{t.sendWhatsAppNow}</span>
+                  <span>💬 {t.sendWhatsAppNow || 'Open in WhatsApp'}</span>
                 </a>
 
+                <a
+                  href="tel:+919718526796"
+                  id="site-visit-call-now"
+                  className="flex-1 py-3.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-extrabold text-sm flex items-center justify-center gap-2 shadow-md transition-all"
+                >
+                  <Phone className="w-4 h-4 fill-stone-950" />
+                  <span>📞 {t.callNowBtn || 'Call Now'}</span>
+                </a>
+              </div>
+
+              <div className="pt-1">
                 <button
                   type="button"
                   onClick={closeSiteVisitModal}
-                  className="w-full py-2.5 text-xs text-stone-500 hover:text-stone-800 font-semibold"
+                  className="text-xs text-stone-500 hover:text-stone-800 font-semibold transition-colors"
                 >
-                  Close Window
+                  {t.close || 'Close'}
                 </button>
               </div>
             </div>

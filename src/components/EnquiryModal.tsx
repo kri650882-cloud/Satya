@@ -199,23 +199,34 @@ export const EnquiryModal: React.FC = () => {
               {/* Action Buttons on Success */}
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <a
-                  href={getWhatsAppLink(
-                    enquiryProperty, 
-                    `Hello Satya Yadav, I just submitted an inquiry for the ${propLocation} plot on your website. My name is ${formData.name}. Please share the complete brochure and mutation/registry details.`
-                  )}
+                  href={`https://wa.me/919718526796?text=${encodeURIComponent(
+                    `Hello Satya Yadav, I would like to inquire about the ${propLocation} property listed by Smriti Vihar.\n\nName: ${formData.name.trim()}\nMobile: ${formData.phone.trim()}\nRequirement: ${formData.requiredPlotSize ? formData.requiredPlotSize : (formData.budget ? `Budget: ${formData.budget}` : 'Plot Details & Rate')}`
+                  )}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   id="enquiry-success-whatsapp-btn"
                   className="flex-1 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md transition-colors"
                 >
                   <MessageCircle className="w-4 h-4 fill-white" />
-                  <span>{t.sendWhatsAppNow || 'Open in WhatsApp'}</span>
+                  <span>💬 {t.whatsAppNow || 'WhatsApp Now'}</span>
                 </a>
 
+                <a
+                  href="tel:+919718526796"
+                  id="enquiry-success-call-btn"
+                  className="flex-1 py-3 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-extrabold text-sm flex items-center justify-center gap-2 shadow-md transition-colors"
+                >
+                  <Phone className="w-4 h-4 fill-stone-950" />
+                  <span>📞 {t.callNowBtn || 'Call Now'}</span>
+                </a>
+              </div>
+
+              <div className="pt-2">
                 <button
+                  type="button"
                   onClick={closeEnquiryModal}
                   id="enquiry-success-close-btn"
-                  className="py-3 px-5 rounded-xl bg-stone-900 hover:bg-stone-800 text-stone-100 font-bold text-sm transition-colors"
+                  className="text-xs text-stone-500 hover:text-stone-800 font-semibold transition-colors"
                 >
                   {t.close}
                 </button>

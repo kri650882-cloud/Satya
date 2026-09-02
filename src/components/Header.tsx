@@ -33,7 +33,6 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate }) => {
     comparedProperties, 
     getWhatsAppLink, 
     getCallLink,
-    openChatbot,
     openSiteVisitModal,
     openFreeConsultationModal
   } = useApp();
