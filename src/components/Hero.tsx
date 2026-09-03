@@ -27,9 +27,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
 
   return (
     <section className="relative bg-stone-950 text-white overflow-hidden border-b border-stone-800">
-      {/* Restored Sunrise Hero Background Image */}
-      <div className="absolute inset-0 z-0">
-        <picture className="w-full h-full">
+      {/* Restored Sunrise Hero Background Image with Subtle Professional Blur */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        <picture className="w-full h-full block">
           <source
             media="(max-width: 768px)"
             srcSet="/images/hero_plots_bihar_768w.webp"
@@ -42,16 +42,16 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
           <img
             src="/images/hero_plots_bihar.jpg"
             alt="Satya Yadav - Premium Residential Plots Bihar Sunrise Landscape"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-center scale-105 filter blur-[5px] opacity-95 transition-all"
             loading="eager"
             fetchPriority="high"
             decoding="async"
           />
         </picture>
 
-        {/* Subtle, Warm Directional Overlays for Pristine Text Readability without darkening the Sunrise */}
+        {/* Subtle, Warm Directional Overlays for Pristine Text Readability without darkening or boxing the Sunrise */}
         {/* Left-to-right gradient ensures headline text legibility while keeping sunrise glow visible */}
-        <div className="absolute inset-0 bg-gradient-to-r from-stone-950/85 via-stone-950/55 to-stone-950/25 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-stone-950/80 via-stone-950/50 to-stone-950/20 pointer-events-none"></div>
         {/* Subtle bottom gradient to transition cleanly to the next section */}
         <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent pointer-events-none"></div>
         {/* Soft warm golden-hour ambient tint */}
@@ -88,27 +88,27 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
           </div>
 
           {/* Main Headings */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             {language === 'hi' ? (
               <>
-                <span className="block text-amber-400 font-brand">अपने सपनों का प्लॉट खोजें।</span>
-                <span className="block text-stone-100">अपना आशियाना बनाएं।</span>
+                <span className="block text-amber-400 font-brand drop-shadow-sm">अपने सपनों का प्लॉट खोजें।</span>
+                <span className="block text-stone-100 drop-shadow-sm">अपना आशियाना बनाएं।</span>
               </>
             ) : (
               <>
-                <span className="block text-stone-100">Find Your Perfect Plot.</span>
-                <span className="block text-amber-400 font-brand">Build Your Dream Home.</span>
+                <span className="block text-stone-100 drop-shadow-sm">Find Your Perfect Plot.</span>
+                <span className="block text-amber-400 font-brand drop-shadow-sm">Build Your Dream Home.</span>
               </>
             )}
           </h1>
 
-          {/* Hindi / Bi-lingual Headline */}
-          <p className="text-sm sm:text-base md:text-lg text-amber-100 font-medium mb-4 leading-relaxed bg-stone-900/90 p-4 rounded-2xl border border-amber-500/30">
+          {/* Hindi / Bi-lingual Headline with Subtle Luxury Backdrop - No Heavy Black Box */}
+          <p className="text-sm sm:text-base md:text-lg text-amber-100/95 font-medium mb-4 leading-relaxed bg-stone-950/40 backdrop-blur-xs p-3.5 sm:p-4 rounded-2xl border border-amber-400/25 shadow-sm">
             {settings.hindiHeadline}
           </p>
 
-          {/* Supporting Description */}
-          <p className="text-xs sm:text-sm md:text-base text-stone-300 mb-8 leading-relaxed max-w-2xl">
+          {/* Supporting Description with Enhanced Legibility */}
+          <p className="text-xs sm:text-sm md:text-base text-stone-200/90 mb-8 leading-relaxed max-w-2xl drop-shadow-[0_1px_3px_rgba(0,0,0,0.7)]">
             {language === 'hi' ? t.heroDesc : settings.heroDescription}
           </p>
 

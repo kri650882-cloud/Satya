@@ -30,9 +30,10 @@ export const LocationsSection: React.FC<LocationsSectionProps> = ({ onSelectProp
       hiState: "बिहार",
       prop: darbhangaProp,
       price: darbhangaProp ? `₹${darbhangaProp.pricePerSqft.toLocaleString('en-IN')}/sq.ft.` : "₹1,800/sq.ft.",
-      highlight: darbhangaProp ? darbhangaProp.locationHighlight : "Near Darbhanga Airport — approx. 3 km",
-      access: darbhangaProp ? darbhangaProp.accessibility : "Main Road Connected",
-      image: darbhangaImg.coverImage,
+      access: language === 'hi' ? "मुख्य सड़क से जुड़ा (Main Road Connected)" : "Main Road Connected",
+      highlight: language === 'hi' ? "दरभंगा एयरपोर्ट के पास — लगभग 3 किमी" : "Near Darbhanga Airport — approximately 3 km",
+      webpImage: "/images/plot_darbhanga_600w.webp",
+      image: darbhangaImg.coverImage || "/images/plot_darbhanga.jpg",
       isOriginal: darbhangaImg.isOriginal,
       badge: language === 'hi' ? "एयरपोर्ट कॉरिडोर" : "Airport Corridor"
     },
@@ -43,9 +44,10 @@ export const LocationsSection: React.FC<LocationsSectionProps> = ({ onSelectProp
       hiState: "बिहार",
       prop: madhubaniProp,
       price: madhubaniProp ? `₹${madhubaniProp.pricePerSqft.toLocaleString('en-IN')}/sq.ft.` : "₹900/sq.ft.",
-      highlight: madhubaniProp ? madhubaniProp.locationHighlight : "Near Madhubani Railway Station — approx. 5 km",
-      access: madhubaniProp ? madhubaniProp.accessibility : "Main Road Connected",
-      image: madhubaniImg.coverImage,
+      access: language === 'hi' ? "मुख्य सड़क से सीधा संपर्क" : "Main Road Connected",
+      highlight: language === 'hi' ? "मधुबनी रेलवे स्टेशन के पास — लगभग 5 किमी" : "Near Madhubani Railway Station — approximately 5 km",
+      webpImage: "/images/plot_madhubani_600w.webp",
+      image: madhubaniImg.coverImage || "/images/plot_madhubani.jpg",
       isOriginal: madhubaniImg.isOriginal,
       badge: language === 'hi' ? "जिला मुख्यालय" : "District HQ"
     },
@@ -56,9 +58,10 @@ export const LocationsSection: React.FC<LocationsSectionProps> = ({ onSelectProp
       hiState: "मधुबनी, बिहार",
       prop: pandaulProp,
       price: pandaulProp ? `₹${pandaulProp.pricePerSqft.toLocaleString('en-IN')}/sq.ft.` : "₹1,000/sq.ft.",
-      highlight: pandaulProp ? pandaulProp.locationHighlight : "Near Pandaul Market",
-      access: pandaulProp ? pandaulProp.accessibility : "Market Road",
-      image: pandaulImg.coverImage,
+      access: language === 'hi' ? "मार्केट रोड से जुड़ाव" : "Market Road Connected",
+      highlight: language === 'hi' ? "पंडौल बाज़ार के पास — लगभग 1.5 किमी" : "Near Pandaul Market — approximately 1.5 km",
+      webpImage: "/images/plot_pandaul_600w.webp",
+      image: pandaulImg.coverImage || "/images/plot_pandaul.jpg",
       isOriginal: pandaulImg.isOriginal,
       badge: language === 'hi' ? "मार्केट हब" : "Market Hub"
     },
@@ -69,9 +72,10 @@ export const LocationsSection: React.FC<LocationsSectionProps> = ({ onSelectProp
       hiState: "बिहार",
       prop: jhanjharpurProp,
       price: jhanjharpurProp ? `₹${jhanjharpurProp.pricePerSqft.toLocaleString('en-IN')}/sq.ft.` : "₹1,300/sq.ft.",
-      highlight: jhanjharpurProp ? jhanjharpurProp.locationHighlight : "Near Jhanjharpur Market",
-      access: jhanjharpurProp ? jhanjharpurProp.accessibility : "Market Road",
-      image: jhanjharpurImg.coverImage,
+      access: language === 'hi' ? "50 फीट चौड़ी पक्की सड़क" : "50 ft Wide Road Frontage",
+      highlight: language === 'hi' ? "झंझारपुर अनुमंडल बाज़ार के पास" : "Near Jhanjharpur Sub-division Market",
+      webpImage: "/images/plot_jhanjharpur_600w.webp",
+      image: jhanjharpurImg.coverImage || "/images/plot_jhanjharpur.jpg",
       isOriginal: jhanjharpurImg.isOriginal,
       badge: language === 'hi' ? "प्राइम एक्सेस" : "Prime Access"
     }
@@ -100,67 +104,86 @@ export const LocationsSection: React.FC<LocationsSectionProps> = ({ onSelectProp
           {locationCards.map((loc) => (
             <div
               key={loc.name}
-              className="group bg-white rounded-3xl border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between"
+              className="group bg-white rounded-3xl border border-stone-200/90 shadow-sm hover:shadow-xl hover:border-amber-400/50 transition-all duration-300 overflow-hidden flex flex-col justify-between"
             >
               <div>
-                {/* Visual Image with SafeImage */}
+                {/* Visual Image with SafeImage - NO solid black bar/strip behind location name */}
                 <div 
-                  className="relative aspect-4/3 overflow-hidden bg-stone-900 cursor-pointer"
+                  className="relative aspect-[16/11] overflow-hidden bg-stone-100 cursor-pointer"
                   onClick={() => loc.prop && onSelectProperty(loc.prop)}
                 >
                   <SafeImage
-                    src={loc.image}
+                    src={loc.webpImage || loc.image}
+                    fallbackSrc={loc.image}
                     alt={`${loc.name} residential plot`}
-                    aspectRatio="aspect-4/3"
-                    className="w-full h-full object-cover"
+                    aspectRatio="aspect-[16/11]"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     showAiBadge={false}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/20 to-transparent pointer-events-none"></div>
 
-                  <div className="absolute top-3 left-3 pointer-events-none">
-                    <span className="px-2.5 py-0.5 rounded-md bg-stone-950/90 text-[10px] font-bold text-amber-300 border border-stone-700">
+                  {/* Extremely subtle transparent gradient overlay only for text contrast - NO black rectangular block */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+
+                  {/* Top Location Feature Badge */}
+                  <div className="absolute top-3 left-3 pointer-events-none z-10">
+                    <span className="px-2.5 py-1 rounded-full bg-stone-950/70 backdrop-blur-xs text-[10px] font-bold text-amber-300 border border-amber-400/30 shadow-xs">
                       {loc.badge}
                     </span>
                   </div>
 
-                  <div className="absolute bottom-3 left-3 right-3">
-                    <h3 className="text-xl font-bold text-white leading-tight">
+                  {/* Location Name & State directly on bottom of image area in crisp White Typography with subtle text-shadow */}
+                  <div className="absolute bottom-3 left-4 right-4 pointer-events-none z-10">
+                    <h3 
+                      className="text-xl sm:text-2xl font-extrabold text-white leading-tight tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]"
+                      style={{ textShadow: '0 2px 5px rgba(0,0,0,0.85), 0 1px 2px rgba(0,0,0,0.9)' }}
+                    >
                       {language === 'hi' ? loc.hiName : loc.name}
                     </h3>
-                    <p className="text-xs text-stone-300 font-medium">
+                    <p 
+                      className="text-xs font-semibold text-amber-200 tracking-wide drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] mt-0.5"
+                      style={{ textShadow: '0 1px 3px rgba(0,0,0,0.8)' }}
+                    >
                       {language === 'hi' ? loc.hiState : loc.state}
                     </p>
                   </div>
                 </div>
 
-                {/* Content specs */}
-                <div className="p-4 space-y-2.5">
-                  <div className="flex justify-between items-center pb-2 border-b border-stone-100">
-                    <span className="text-xs text-stone-500 font-semibold">{t.pricePerSqft}</span>
-                    <span className="text-base font-extrabold text-stone-900">{loc.price}</span>
+                {/* Content specs below image */}
+                <div className="p-5 space-y-3.5 bg-white">
+                  {/* Price per sq.ft. */}
+                  <div className="flex items-center justify-between pb-3 border-b border-stone-100">
+                    <span className="text-xs font-medium text-stone-500 uppercase tracking-wider">
+                      {t.pricePerSqft}
+                    </span>
+                    <span className="text-base sm:text-lg font-extrabold text-stone-900 font-sans">
+                      {loc.price}
+                    </span>
                   </div>
 
-                  <div className="text-xs text-stone-700 flex items-start gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 mt-0.5 shrink-0" />
-                    <span className="font-medium">{loc.access}</span>
-                  </div>
+                  {/* Location/Connectivity details */}
+                  <div className="space-y-2 text-xs text-stone-700">
+                    <div className="flex items-start gap-2">
+                      <span className="text-amber-500 font-black text-sm leading-none mt-0.5">◉</span>
+                      <span className="font-medium text-stone-800 leading-snug">{loc.access}</span>
+                    </div>
 
-                  <div className="text-xs text-stone-600 flex items-start gap-2">
-                    <MapPin className="w-3.5 h-3.5 text-stone-400 mt-0.5 shrink-0" />
-                    <span className="line-clamp-2">{loc.highlight}</span>
+                    <div className="flex items-start gap-2">
+                      <span className="text-amber-500 font-black text-sm leading-none mt-0.5">◉</span>
+                      <span className="text-stone-600 leading-snug">{loc.highlight}</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Action */}
-              <div className="p-4 pt-0">
+              {/* Action - View Details button */}
+              <div className="p-5 pt-0">
                 <button
                   onClick={() => loc.prop && onSelectProperty(loc.prop)}
                   id={`view-location-property-${loc.name.toLowerCase()}`}
-                  className="w-full py-2.5 px-3 rounded-xl bg-stone-900 hover:bg-stone-800 text-stone-100 text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm group-hover:bg-amber-500 group-hover:text-stone-950"
+                  className="w-full py-2.5 px-4 rounded-xl bg-stone-900 hover:bg-amber-500 text-stone-100 hover:text-stone-950 text-xs font-bold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm group/btn cursor-pointer"
                 >
                   <span>{t.viewProperty}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />
                 </button>
               </div>
             </div>

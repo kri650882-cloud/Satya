@@ -6,6 +6,7 @@ interface SafeImageProps {
   src: string;
   alt: string;
   className?: string;
+  containerClassName?: string;
   aspectRatio?: string; // e.g. 'aspect-video', 'aspect-4/3'
   fallbackSrc?: string;
   showAiBadge?: boolean;
@@ -18,6 +19,7 @@ export const SafeImage: React.FC<SafeImageProps> = ({
   src,
   alt,
   className = 'w-full h-full object-cover',
+  containerClassName,
   aspectRatio = 'aspect-video',
   fallbackSrc = '/images/placeholder_property.svg',
   showAiBadge = true, // Default true to display AI Representative Image label as requested
@@ -57,14 +59,14 @@ export const SafeImage: React.FC<SafeImageProps> = ({
 
   return (
     <div 
-      className={`relative w-full ${aspectRatio} overflow-hidden bg-stone-900 select-none ${onClick ? 'cursor-pointer' : ''}`}
+      className={`relative w-full ${aspectRatio} overflow-hidden ${containerClassName || 'bg-stone-100'} select-none ${onClick ? 'cursor-pointer' : ''}`}
       onClick={onClick}
     >
       {/* Loading Skeleton */}
       {loading && errorCount < 2 && (
-        <div className="absolute inset-0 bg-stone-900/90 animate-pulse flex items-center justify-center z-10">
-          <div className="flex flex-col items-center gap-2 text-stone-500 text-xs">
-            <div className="w-8 h-8 rounded-full border-2 border-amber-500/40 border-t-amber-400 animate-spin"></div>
+        <div className="absolute inset-0 bg-stone-100/95 animate-pulse flex items-center justify-center z-10">
+          <div className="flex flex-col items-center gap-2 text-stone-400 text-xs">
+            <div className="w-7 h-7 rounded-full border-2 border-amber-500/40 border-t-amber-500 animate-spin"></div>
           </div>
         </div>
       )}
